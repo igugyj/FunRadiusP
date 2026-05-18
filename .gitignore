@@ -130,6 +130,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 public/rss.xml
+public/robots.txt
+public/BingSiteAuth.xml
+public/*.txt
 
 content/docs/Python
 content/docs/Cpp

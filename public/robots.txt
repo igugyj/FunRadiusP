@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://pg25-lsae.eu.org/sitemap.xml

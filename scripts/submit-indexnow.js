@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const outputDir = path.join(process.cwd(), "output");
 const cachePath = path.join(process.cwd(), ".indexnow-cache.json");
-const KEY = "c323c6da4b4949cf9b4f87cdcc7586e3";
+const KEY = process.env.INDEXNOW_KEY || "c323c6da4b4949cf9b4f87cdcc7586e3";
 
 function sitemapHash() {
   const f = path.join(outputDir, "sitemap.xml");
@@ -96,8 +96,8 @@ async function main() {
     return;
   }
 
-  const keyFile = path.join(process.cwd(), "public", `${KEY}.txt`);
-  if (!fs.existsSync(keyFile)) { console.warn(`Key file missing: ${keyFile}`); return; }
+  const keyFile = path.join(outputDir, `${KEY}.txt`);
+  if (!fs.existsSync(keyFile) && !process.env.INDEXNOW_KEY) { console.warn(`Key file missing: ${keyFile}`); return; }
 
   const host = (process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com")
     .replace(/^https?:\/\//, "").replace(/\/+$/, "");

@@ -7,7 +7,7 @@
     "predev": "node scripts/copy-assets.js --dev && node scripts/generate-rss-dev.js",
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/copy-assets.js && node scripts/generate-rss.js && node scripts/generate-sitemap.js",
+    "postbuild": "node scripts/copy-assets.js && node scripts/generate-rss.js && node scripts/generate-sitemap.js && node scripts/generate-verification.js",
     "deploy": "npm run build && node scripts/submit-indexnow.js",
     "postsubmit": "node scripts/generate-sitemap.js && node scripts/submit-indexnow.js",
     "start": "node scripts/serve-static.js",
