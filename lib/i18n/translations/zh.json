@@ -1,0 +1,227 @@
+{
+    "navigation": {
+    "home": "首页",
+    "articles": "文章",
+    "about": "关于",
+    "friends": "友链",
+    "more": "更多",
+    "docs": "文档集",
+    "moments": "随笔",
+    "archive": "归档",
+    "categories": "分类",
+    "tags": "标签",
+    "journey": "历程",
+    "projects": "项目",
+    "demos": "Demo",
+    "information": "信息",
+    "rss": "RSS"
+},
+    "theme": {
+        "toggleLight": "切换到亮色主题",
+        "toggleDark": "切换到暗色主题",
+        "customColor": "自定义主题颜色",
+        "red": "红色 (R)",
+        "green": "绿色 (G)",
+        "blue": "蓝色 (B)"
+    },
+    "language": {
+        "switch": "切换语言",
+        "zh": "中文",
+        "en": "English",
+        "es": "Español",
+        "ja": "日本語",
+        "de": "Deutsch",
+        "fr": "Français"
+    },
+    "pagination": {
+        "prev": "上一页",
+        "next": "下一页",
+        "page": "第 {current} 页 / 共 {total} 页"
+    },
+    "common": {
+        "backToTop": "回到顶部",
+        "readMore": "阅读更多",
+        "copied": "已复制!",
+        "copy": "复制",
+        "noContent": "暂无内容",
+        "loading": "加载中...",
+        "toc": "目录",
+        "retry": "重试",
+        "close": "关闭"
+    },
+    "posts": {
+        "readMore": "阅读全文",
+        "publishedOn": "发布于",
+        "updatedOn": "更新于",
+        "category": "分类",
+        "tags": "标签",
+        "noPosts": "暂无文章",
+        "allArticles": "所有文章",
+        "listTitle": "文章列表",
+        "notFound": "文章未找到",
+        "prevPost": "上一篇：",
+        "nextPost": "下一篇：",
+        "toc": "目录"
+    },
+    "archive": {
+        "title": "归档",
+        "year": "{year} 年",
+        "noArchives": "暂无归档"
+    },
+    "categories": {
+        "title": "分类",
+        "allCategories": "所有分类",
+        "postsInCategory": "{count} 篇文章",
+        "noCategories": "暂无分类",
+        "pageTitle": "分类：{category}",
+        "noPosts": "该分类暂无文章"
+    },
+    "tags": {
+        "title": "标签",
+        "allTags": "所有标签",
+        "postsWithTag": "{count} 篇文章",
+        "noTags": "暂无标签",
+        "pageTitle": "标签：{tag}",
+        "noPosts": "该标签暂无文章"
+    },
+    "footer": {
+        "travelLink": "异次元之旅",
+        "copyright": "© {year} {siteName}. 保留所有权利.",
+        "poweredBy": "使用 Next.js + TypeScript + Tailwind CSS 构建",
+        "poweredByShort": "使用 Next.js 构建",
+        "githubThanks": "感谢全世界最大的同性交友网站",
+        "cloudflareThanks": "一个慷慨又善良的神",
+        "supportedBy": "由 {github} 和 {cloudflare} 提供强力支持"
+    },
+    "greeting": {
+        "welcome": "欢迎，来自{os}的{browser}的您！"
+    },
+    "error": {
+        "notFound": "页面未找到",
+        "notFoundTitle": "小笨蛋，页面跑偏啦～",
+        "notFoundDesc": "你可以选择刷新页面或者返回主页",
+        "notFoundImgAlt": "404错误图片",
+        "backHome": "返回首页"
+    },
+    "home": {
+        "greetingNight": "夜深了，注意休息",
+        "greetingMorning": "早上好，新的一天开始了",
+        "greetingAfternoon": "下午好，继续加油",
+        "greetingEvening": "晚上好，放松一下吧",
+        "welcome": "欢迎来到我的个人博客，这里记录了我的学习、生活和思考。",
+        "latestArticle": "最新文章",
+        "latestMoment": "最新随笔"
+    },
+    "about": {
+        "title": "关于我",
+        "pageTitle": "关于",
+        "description": "关于我，个人介绍"
+    },
+    "archivePage": {
+        "title": "按年份归档的文章列表",
+        "yearNav": "年份",
+        "yearPosts": "{year} 年文章",
+        "yearWithCount": "{year} 年 ({count})"
+    },
+    "articlesPage": {
+        "title": "所有文章",
+        "description": "所有博客文章列表",
+        "listTitle": "文章列表"
+    },
+    "categoriesPage": {
+        "title": "分类",
+        "description": "所有文章分类",
+        "category": "分类",
+        "postCount": "文章数量"
+    },
+    "tagsPage": {
+        "title": "标签",
+        "description": "所有文章标签",
+        "tagCloud": "标签云"
+    },
+    "projectsPage": {
+        "title": "我的项目",
+        "pageTitle": "项目",
+        "description": "我的项目展示"
+    },
+    "journeyPage": {
+        "title": "我的旅程",
+        "pageTitle": "旅程",
+        "description": "我的成长历程"
+    },
+    "informationPage": {
+        "title": "信息",
+        "pageTitle": "信息",
+        "description": "关于此网站的信息"
+    },
+    "demosPage": {
+        "title": "Demo 展示",
+        "pageTitle": "Demo",
+        "description": "有趣的Demo展示",
+        "noDemos": "暂无 demo",
+        "notFound": "Demo 不存在",
+        "backToList": "返回 demo 列表",
+        "openFullPage": "打开完整页面",
+        "noHtmlContent": "该 demo 没有 HTML 内容"
+    },
+    "docsPage": {
+        "title": "文档集",
+        "pageTitle": "文档集",
+        "description": "技术文档和教程",
+        "noCollections": "暂无文档集",
+        "docCount": "{count} 篇文档",
+        "notFound": "文档未找到",
+        "prevDoc": "上一篇",
+        "nextDoc": "下一篇",
+        "backToCollection": "返回 {title}",
+        "backToCollections": "返回文档集"
+    },
+    "momentsPage": {
+        "title": "随笔",
+        "pageTitle": "随笔",
+        "description": "记录日常点滴",
+        "readMore": "更多...",
+        "photoAlt": "照片 {index}",
+        "morePhotos": "还有 {count} 张照片...",
+        "notFound": "随笔未找到",
+        "detailTitle": "随笔 - {time}",
+        "photoAltOpenGraph": "随笔照片"
+    },
+    "comments": {
+        "title": "评论"
+    },
+    "musicPlayer": {
+    "browserNotSupport": "您的浏览器不支持音频播放"
+},
+"friends": {
+    "title": "友链",
+    "pageTitle": "友链",
+    "description": "我的朋友们",
+    "empty": "这个入还没有盆友哇！",
+    "loadError": "友链加载失败，请稍后重试。",
+    "howToAdd": "如何添加友链",
+    "dialogTitle": "添加友链",
+    "dialogIssue": "通过 GitHub Issue 提交",
+    "dialogPR": "通过 GitHub Pull Request 提交",
+    "dialogEmail": "通过邮件联系",
+    "dialogOther": "通过其他方式(Bilibili, QQ, WeChat...)",
+    "dialogDataFormat": "请按以下格式提供信息：",
+    "paginationPrev": "上一页",
+    "paginationNext": "下一页"
+  },
+  "gitHubCard": {
+    "loading": "正在获取 GitHub 数据...",
+    "error": "无法加载用户信息",
+    "starsEarned": "获得的 Stars",
+    "totalForks": "总 Forks",
+    "followers": "粉丝",
+    "totalCommits": "总 Commits",
+    "repositories": "仓库",
+    "topLanguage": "常用语言",
+    "topLanguages": "常用语言 (按仓库数量)",
+    "noLanguage": "未检测到语言",
+    "mostPopularRepos": "热门仓库",
+    "noRepos": "暂无仓库",
+    "githubProfile": "GitHub 档案"
+  }
+}

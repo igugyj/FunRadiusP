@@ -1,0 +1,6 @@
+{
+    "body": "## v20260503.13.5 - 2026-05-03\r\n\r\n### 更新内容\r\n\r\n- **文档更新**：更新用户文档，提升使用指引的准确性与完整性。\r\n- **TTS 设置页面**：优化页面显示逻辑，改善界面交互体验。\r\n- **VoiceVox 模型**：优化模型加载时 StyleID 的载入逻辑，提高稳定性和正确性。\r\n- **翻译功能**：新增腾讯云翻译能力，并补充相关配置说明与文档支持。\r\n- **翻译功能**：libretranslate 简单支持\r\n\r\n\r\n## What's Changed\r\n* Update sync-to-gitee.yml by @igugyj in https://github.com/igugyj/Pelr/pull/19\r\n* release: 20260503.13.5 by @igugyj in https://github.com/igugyj/Pelr/pull/20\r\n\r\n\r\n\r\n\r\n**Full Changelog**: https://github.com/igugyj/Pelr/compare/20260405.12.18...20260503.13.5",
+    "tag_name": "20260503.13.5",
+    "download_url": "https://sourceforge.net/projects/pfolg-plauncher/files/latest/download",
+    "published_at": "2026-05-03 15:36:45"
+}

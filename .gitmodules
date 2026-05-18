@@ -1,0 +1,15 @@
+[submodule "content/spec"]
+	path = content/spec
+	url = git@github.com:igugyj/MyBlog-spec.git
+[submodule "content/demos"]
+	path = content/demos
+	url = git@github.com:igugyj/MyBlog-demos.git
+[submodule "content/moments"]
+	path = content/moments
+	url = git@github.com:igugyj/MyBlog-moments.git
+[submodule "content/docs"]
+	path = content/docs
+	url = git@github.com:igugyj/MyBlog-docs.git
+[submodule "content/posts"]
+	path = content/posts
+	url = git@github.com:igugyj/MyBlog-posts.git

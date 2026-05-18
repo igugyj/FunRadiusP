@@ -1,0 +1,11 @@
+为项目添加一个demo块，用于一些demo项目的展示，支持内部的js，html，css
+也是静态
+--content
+	- demo
+		- demo1
+			index.html
+		- demo2
+			index.html
+			show.html
+			assets （这里的html文件需要...）
+		...

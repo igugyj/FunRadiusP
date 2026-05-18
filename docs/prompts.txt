@@ -1,0 +1,137 @@
+# FunRadiusP Next.js 静态博客项目提示词
+
+## 项目概述
+
+这是一个基于 **Next.js (App Router) + TypeScript + Tailwind CSS** 的静态博客生成器。项目完全采用静态导出（`output: 'export'`），可部署到任何静态托管服务（GitHub Pages、Vercel、Netlify 等）。主题为粉白配色，支持移动端响应式。
+
+## 核心功能清单
+
+- 首页：动态问候语（根据时间变化），导航链接
+- 文章列表：分页展示，每页显示固定数量（默认5篇）
+- 文章详情：Markdown 渲染、代码高亮、目录生成、上一篇/下一篇、版权声明、媒体播放器配置、评论区（giscus）
+- 归档：按年份聚合文章，侧边栏年份切换器
+- 分类页：表格展示所有分类及文章数量，每个分类拥有独立页面
+- 标签云：按文章数量显示不同字体大小，每个标签拥有独立页面
+- 历程页：支持自定义时间线语法（`::: timeline` 块），解析为左右交替卡片
+- 项目页 / 关于页 / 信息页：读取 Markdown 文件渲染，信息页额外展示 Git 提交记录
+- 媒体播放器：全局单例，可配置音频源、位置、自动播放
+- 评论系统：giscus，通过配置仓库和分类 ID 加载
+- 回到顶部按钮、导航菜单折叠
+
+## 技术栈要求
+
+- 框架：Next.js 14+ (App Router)
+- 语言：TypeScript
+- 样式：Tailwind CSS + 自定义 CSS 变量（粉色主题）
+- Markdown 处理：unified + remark-parse + remark-rehype + rehype-highlight + rehype-slug + rehype-autolink-headings
+- 元数据解析：gray-matter
+- 静态导出：完全静态，无需 Node.js 服务器
+
+## 目录结构
+
+```
+FunRadiusP-react/
+├── app/                      # App Router 页面
+│   ├── layout.tsx            # 根布局
+│   ├── page.tsx              # 首页
+│   ├── globals.css           # 全局样式
+│   ├── articles/             # 文章列表 + 分页
+│   ├── posts/[slug]/         # 文章详情
+│   ├── archive/              # 归档（年份索引 + 列表）
+│   ├── categories/           # 分类列表 + 单个分类页面
+│   ├── tags/                 # 标签云 + 单个标签页面
+│   ├── about/                # 关于页
+│   ├── journey/              # 历程页（时间线）
+│   ├── projects/             # 项目页
+│   └──  information/          # 信息页（含 Git 记录）
+├── components/               # 可复用组件
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── BackToTop.tsx
+│   ├── PostCard.tsx
+│   ├── Pagination.tsx
+│   ├── TableOfContents.tsx
+│   ├── MediaPlayer.tsx
+│   └── GiscusComments.tsx
+├── lib/                      # 工具函数
+│   ├── posts.ts              # 扫描、解析所有文章
+│   ├── utils.ts              # slugify、分页、标签大小、年份分组
+│   ├── markdown.ts           # Markdown 转 HTML，时间线解析
+│   └── git.ts                # 获取 Git 提交记录
+├── content/                  # 内容目录
+│   ├── posts/                # 每篇文章一个文件夹（含 index.md 和 assets）
+│   └── spec/                 # 特殊页面（about, journey, projects, information）
+├── public/                   # 静态资源（图片、字体、2048 游戏文件等）
+├── next.config.js            # 配置静态导出
+├── tailwind.config.js        # Tailwind 配置（粉色主题）
+└── package.json
+```
+
+## 内容格式规范
+
+### 文章 Front Matter
+
+```yaml
+---
+title: 标题
+published: 2025-04-02
+description: 摘要
+category: 分类名称
+tags: [标签1, 标签2]
+draft: false
+image: cover.jpg                    # 可选，封面图片路径
+player:                             # 可选，媒体播放器配置
+  source: local                     # 或 netease
+  link: /music/example.mp3
+  top: 100px                        # 位置
+  left: 20px
+  autoPlay: false
+---
+```
+
+### 历程页时间线语法
+
+```
+::: timeline
+title: 事件标题
+date: 2025-01-01
+icon: (emoji placeholder)
+---
+Markdown 正文内容
+:::
+```
+
+### 信息页
+
+自动从 Git 仓库获取最近 5 条提交记录（构建时执行 `git log`）。
+
+## 构建与开发
+
+- 开发：`npm run dev`（监听内容变化，自动刷新）
+- 生产构建：`npm run build`（生成完全静态的 `out/` 目录）
+- 输出目录：`out/`，可直接部署到任何静态服务器
+
+## 关键实现细节
+
+1. **分页路由**：`/articles`（第1页）、`/articles/page/2/`（第2页）等，使用 `generateStaticParams` 生成所有分页路径。
+2. **归档年份路由**：`/archive`（默认最新年份）、`/archive/2025/` 等，动态生成所有有文章的年份。
+3. **分类/标签路由**：使用 `slugify` 生成 URL，每个分类/标签独立页面。
+4. **目录生成**：在客户端从文章 HTML 中提取 `h2-h6` 及其 `id`，生成悬浮目录，并监听滚动高亮当前章节。
+5. **媒体播放器**：通过 `post.player` 配置传递给 `MediaPlayer` 组件，客户端渲染。
+6. **Git 提交记录**：在构建时通过 `getRecentCommits` 函数执行 `git log` 命令，生成数据传递给信息页。
+7. **代码高亮**：使用 `rehype-highlight` 插件，支持多种语言。
+8. **时间线解析**：自定义正则匹配 `::: timeline` 块，转换为左右交替卡片 HTML。
+
+## 样式要求
+
+- 主色调：粉色（`#ff69b4`），辅助色：浅粉色（`#ffe0f0`）、深粉色（`#e055a0`）
+- 背景色：`#fef7fc`
+- 文字色：`#4a4a4a`
+- 卡片、按钮采用圆角、阴影，悬停有轻微上浮效果
+- 响应式：移动端适配，目录在窄屏下隐藏
+
+## 部署要求
+
+- 完全静态，无需服务器端运行时
+- 支持自定义域名
+- 兼容 GitHub Pages、Cloudflare Pages、Netlify 等

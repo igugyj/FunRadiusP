@@ -1,0 +1,28 @@
+<svg width="100%" viewBox="0 0 680 110" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lg-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#fb17a8"/>
+      <stop offset="80%"  stop-color="#ffa2e1"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="lg-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#fb17a8"/>
+      <stop offset="80%"  stop-color="#ffa2e1"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .t { fill: url(#lg-light); }
+    @media (prefers-color-scheme: dark) {
+      .t { fill: url(#lg-dark); }
+    }
+  </style>
+  <text
+    class="t"
+    x="340" y="88"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="82"
+    font-weight="700"
+    letter-spacing="3">FunRadiusP</text>
+</svg>

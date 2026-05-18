@@ -1,0 +1,227 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "articles": "Artículos",
+    "about": "Sobre mí",
+    "friends": "Amigos",
+    "more": "Más",
+    "docs": "Documentos",
+    "moments": "Momentos",
+    "archive": "Archivo",
+    "categories": "Categorías",
+    "tags": "Etiquetas",
+    "journey": "Viaje",
+    "projects": "Proyectos",
+    "demos": "Demos",
+    "information": "Información",
+    "rss": "RSS"
+  },
+  "theme": {
+    "toggleLight": "Cambiar a tema claro",
+    "toggleDark": "Cambiar a tema oscuro",
+    "customColor": "Color de tema personalizado",
+    "red": "Rojo (R)",
+    "green": "Verde (G)",
+    "blue": "Azul (A)"
+  },
+  "language": {
+    "switch": "Cambiar idioma",
+    "zh": "中文",
+    "en": "English",
+    "es": "Español",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "fr": "Français"
+  },
+  "pagination": {
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "page": "Página {current} de {total}"
+  },
+  "common": {
+    "backToTop": "Volver arriba",
+    "readMore": "Leer más",
+    "copied": "¡Copiado!",
+    "copy": "Copiar",
+    "noContent": "Sin contenido",
+    "loading": "Cargando...",
+    "toc": "Tabla de contenidos",
+    "retry": "Reintentar",
+    "close": "Cerrar"
+  },
+  "posts": {
+    "readMore": "Leer más",
+    "publishedOn": "Publicado el",
+    "updatedOn": "Actualizado el",
+    "category": "Categoría",
+    "tags": "Etiquetas",
+    "noPosts": "Sin artículos",
+    "allArticles": "Todos los artículos",
+    "listTitle": "Lista de artículos",
+    "notFound": "Artículo no encontrado",
+    "prevPost": "Anterior: ",
+    "nextPost": "Siguiente: ",
+    "toc": "Tabla de contenidos"
+  },
+  "archive": {
+    "title": "Archivo",
+    "year": "{year}",
+    "noArchives": "Sin archivos"
+  },
+  "categories": {
+    "title": "Categorías",
+    "allCategories": "Todas las categorías",
+    "postsInCategory": "{count} publicaciones",
+    "noCategories": "Sin categorías",
+    "pageTitle": "Categoría: {category}",
+    "noPosts": "Sin publicaciones en esta categoría"
+  },
+  "tags": {
+    "title": "Etiquetas",
+    "allTags": "Todas las etiquetas",
+    "postsWithTag": "{count} publicaciones",
+    "noTags": "Sin etiquetas",
+    "pageTitle": "Etiqueta: {tag}",
+    "noPosts": "Sin publicaciones con esta etiqueta"
+  },
+  "footer": {
+    "travelLink": "Inicio de viaje",
+    "copyright": "© {year} {siteName}. Todos los derechos reservados.",
+    "poweredBy": "Construido con Next.js + TypeScript + Tailwind CSS",
+    "poweredByShort": "Construido con Next.js",
+    "githubThanks": "Gracias a la mayor comunidad de código del mundo",
+    "cloudflareThanks": "Un proveedor generoso y amable",
+    "supportedBy": "Impulsado por {github} y {cloudflare}"
+  },
+  "greeting": {
+    "welcome": "¡Bienvenido, usuario de {browser} desde {os}!"
+  },
+  "error": {
+    "notFound": "Página no encontrada",
+    "notFoundTitle": "¡Vaya! La página se perdió.",
+    "notFoundDesc": "Puedes elegir actualizar la página o volver al inicio.",
+    "notFoundImgAlt": "Imagen de error 404",
+    "backHome": "Ir al inicio"
+  },
+  "home": {
+    "greetingNight": "Es tarde, descansa",
+    "greetingMorning": "Buenos días, empieza un nuevo día",
+    "greetingAfternoon": "Buenas tardes, sigue adelante",
+    "greetingEvening": "Buenas noches, relájate un poco",
+    "welcome": "Bienvenido a mi blog personal, donde documento mi aprendizaje, vida y pensamientos.",
+    "latestArticle": "Último Artículo",
+    "latestMoment": "Último Momento"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "pageTitle": "Sobre mí",
+    "description": "Sobre mí, presentación personal"
+  },
+  "archivePage": {
+    "title": "Artículos archivados por año",
+    "yearNav": "Año",
+    "yearPosts": "{year} Artículos",
+    "yearWithCount": "{year} ({count})"
+  },
+  "articlesPage": {
+    "title": "Todos los artículos",
+    "description": "Lista de todos los artículos del blog",
+    "listTitle": "Lista de artículos"
+  },
+  "categoriesPage": {
+    "title": "Categorías",
+    "description": "Todas las categorías de artículos",
+    "category": "Categoría",
+    "postCount": "Número de publicaciones"
+  },
+  "tagsPage": {
+    "title": "Etiquetas",
+    "description": "Todas las etiquetas de artículos",
+    "tagCloud": "Nube de etiquetas"
+  },
+  "projectsPage": {
+    "title": "Mis proyectos",
+    "pageTitle": "Proyectos",
+    "description": "Mi muestra de proyectos"
+  },
+  "journeyPage": {
+    "title": "Mi viaje",
+    "pageTitle": "Viaje",
+    "description": "Mi viaje de crecimiento"
+  },
+  "informationPage": {
+    "title": "Información",
+    "pageTitle": "Información",
+    "description": "Sobre este sitio web"
+  },
+  "demosPage": {
+    "title": "Muestra de Demos",
+    "pageTitle": "Demos",
+    "description": "Muestra de demos divertidos",
+    "noDemos": "Sin demos aún",
+    "notFound": "Demo no encontrada",
+    "backToList": "Volver a la lista de demos",
+    "openFullPage": "Abrir página completa",
+    "noHtmlContent": "Esta demo no tiene contenido HTML"
+  },
+  "docsPage": {
+    "title": "Documentos",
+    "pageTitle": "Documentos",
+    "description": "Documentos técnicos y tutoriales",
+    "noCollections": "Sin colecciones aún",
+    "docCount": "{count} documentos",
+    "notFound": "Documento no encontrado",
+    "prevDoc": "Anterior",
+    "nextDoc": "Siguiente",
+    "backToCollection": "Volver a {title}",
+    "backToCollections": "Volver a las colecciones"
+  },
+  "momentsPage": {
+    "title": "Momentos",
+    "pageTitle": "Momentos",
+    "description": "Momentos diarios",
+    "readMore": "Leer más...",
+    "photoAlt": "Foto {index}",
+    "morePhotos": "Y {count} fotos más...",
+    "notFound": "Momento no encontrado",
+    "detailTitle": "Momento - {time}",
+    "photoAltOpenGraph": "Foto del momento"
+  },
+  "comments": {
+    "title": "Comentarios"
+  },
+  "musicPlayer": {
+    "browserNotSupport": "Tu navegador no soporta la reproducción de audio"
+  },
+  "friends": {
+    "title": "Amigos",
+    "pageTitle": "Amigos",
+    "description": "Mis amigos",
+    "empty": "¡Esta persona aún no tiene amigos!",
+    "loadError": "Error al cargar amigos, por favor inténtelo más tarde.",
+    "howToAdd": "Cómo agregar un enlace de amigo",
+    "dialogTitle": "Agregar Enlace de Amigo",
+    "dialogIssue": "Enviar via GitHub Issue",
+    "dialogPR": "Enviar via GitHub Pull Request",
+    "dialogEmail": "Contactar via Email",
+    "dialogOther": "Contactar via Bilibili, QQ, WeChat (...)",
+    "dialogDataFormat": "Por favor, proporcione la información en el siguiente formato:",
+    "paginationPrev": "Anterior",
+    "paginationNext": "Siguiente"
+  },
+  "gitHubCard": {
+    "loading": "Obteniendo datos de GitHub...",
+    "error": "No se puede cargar la información del usuario",
+    "starsEarned": "Stars Obtenidos",
+    "totalForks": "Total Forks",
+    "followers": "Seguidores",
+    "totalCommits": "Total Commits",
+    "repositories": "Repositorios",
+    "topLanguage": "Idioma Principal",
+    "topLanguages": "Idiomas Principales (por número de repos)",
+    "noLanguage": "No se detectó idioma",
+    "mostPopularRepos": "Repositorios Más Populares",
+    "noRepos": "Aún no hay repositorios",
+    "githubProfile": "Perfil de GitHub"
+  }
+}

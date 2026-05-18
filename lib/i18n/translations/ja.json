@@ -1,0 +1,227 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "articles": "記事",
+    "about": "私について",
+    "friends": "友達",
+    "more": "もっと",
+    "docs": "ドキュメント",
+    "moments": "瞬間",
+    "archive": "アーカイブ",
+    "categories": "カテゴリ",
+    "tags": "タグ",
+    "journey": "旅",
+    "projects": "プロジェクト",
+    "demos": "デモ",
+    "information": "情報",
+    "rss": "RSS"
+  },
+  "theme": {
+    "toggleLight": "ライトテーマに切り替え",
+    "toggleDark": "ダークテーマに切り替え",
+    "customColor": "カスタムテーマカラー",
+    "red": "赤 (R)",
+    "green": "緑 (G)",
+    "blue": "青 (B)"
+  },
+  "language": {
+    "switch": "言語を切り替え",
+    "zh": "中文",
+    "en": "English",
+    "es": "Español",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "fr": "Français"
+  },
+  "pagination": {
+    "prev": "前へ",
+    "next": "次へ",
+    "page": "{total}ページ中 {current}ページ"
+  },
+  "common": {
+    "backToTop": "トップへ戻る",
+    "readMore": "もっと読む",
+    "copied": "コピーしました！",
+    "copy": "コピー",
+    "noContent": "コンテンツなし",
+    "loading": "読み込み中...",
+    "toc": "目次",
+    "retry": "再試行",
+    "close": "閉じる"
+  },
+  "posts": {
+    "readMore": "もっと読む",
+    "publishedOn": "公開日",
+    "updatedOn": "更新日",
+    "category": "カテゴリ",
+    "tags": "タグ",
+    "noPosts": "記事なし",
+    "allArticles": "すべての記事",
+    "listTitle": "記事一覧",
+    "notFound": "記事が見つかりません",
+    "prevPost": "前の記事: ",
+    "nextPost": "次の記事: ",
+    "toc": "目次"
+  },
+  "archive": {
+    "title": "アーカイブ",
+    "year": "{year}年",
+    "noArchives": "アーカイブなし"
+  },
+  "categories": {
+    "title": "カテゴリ",
+    "allCategories": "すべてのカテゴリ",
+    "postsInCategory": "{count}件の記事",
+    "noCategories": "カテゴリなし",
+    "pageTitle": "カテゴリ: {category}",
+    "noPosts": "このカテゴリに記事がありません"
+  },
+  "tags": {
+    "title": "タグ",
+    "allTags": "すべてのタグ",
+    "postsWithTag": "{count}件の記事",
+    "noTags": "タグなし",
+    "pageTitle": "タグ: {tag}",
+    "noPosts": "このタグの記事がありません"
+  },
+  "footer": {
+    "travelLink": "旅を開始",
+    "copyright": "© {year} {siteName}. 全著作権所有。",
+    "poweredBy": "Next.js + TypeScript + Tailwind CSS で構築",
+    "poweredByShort": "Next.js で構築",
+    "githubThanks": "世界最大のコードコミュニティに感謝",
+    "cloudflareThanks": "寛大で親切なプロバイダー",
+    "supportedBy": "{github} と {cloudflare} でサポート"
+  },
+  "greeting": {
+    "welcome": "{os} の {browser} ユーザー、ようこそ！"
+  },
+  "error": {
+    "notFound": "ページが見つかりません",
+    "notFoundTitle": "あら！ページが迷子になりました。",
+    "notFoundDesc": "ページを更新するか、ホームに戻るか選択できます。",
+    "notFoundImgAlt": "404エラー画像",
+    "backHome": "ホームへ戻る"
+  },
+  "home": {
+    "greetingNight": "夜遅いです、休んでください",
+    "greetingMorning": "おはようございます、新しい一日が始まります",
+    "greetingAfternoon": "こんにちは、頑張ってください",
+    "greetingEvening": "こんばんは、少しリラックスしてください",
+    "welcome": "私のパーソナルブログへようこそ。ここでは学習、生活、考えを記録しています。",
+    "latestArticle": "最新記事",
+    "latestMoment": "最新瞬間"
+  },
+  "about": {
+    "title": "私について",
+    "pageTitle": "私について",
+    "description": "私について、自己紹介"
+  },
+  "archivePage": {
+    "title": "年別アーカイブ記事",
+    "yearNav": "年",
+    "yearPosts": "{year}年の記事",
+    "yearWithCount": "{year}年 ({count}件)"
+  },
+  "articlesPage": {
+    "title": "すべての記事",
+    "description": "ブログ記事一覧",
+    "listTitle": "記事一覧"
+  },
+  "categoriesPage": {
+    "title": "カテゴリ",
+    "description": "すべての記事カテゴリ",
+    "category": "カテゴリ",
+    "postCount": "記事数"
+  },
+  "tagsPage": {
+    "title": "タグ",
+    "description": "すべての記事タグ",
+    "tagCloud": "タグクラウド"
+  },
+  "projectsPage": {
+    "title": "私のプロジェクト",
+    "pageTitle": "プロジェクト",
+    "description": "プロジェクト紹介"
+  },
+  "journeyPage": {
+    "title": "私の旅",
+    "pageTitle": "旅",
+    "description": "成長の旅"
+  },
+  "informationPage": {
+    "title": "情報",
+    "pageTitle": "情報",
+    "description": "このウェブサイトについて"
+  },
+  "demosPage": {
+    "title": "デモ紹介",
+    "pageTitle": "デモ",
+    "description": "楽しいデモ",
+    "noDemos": "デモはまだありません",
+    "notFound": "デモが見つかりません",
+    "backToList": "デモ一覧に戻る",
+    "openFullPage": "フルページで開く",
+    "noHtmlContent": "このデモにはHTMLコンテンツがありません"
+  },
+  "docsPage": {
+    "title": "ドキュメント",
+    "pageTitle": "ドキュメント",
+    "description": "技術ドキュメントとチュートリアル",
+    "noCollections": "コレクションはまだありません",
+    "docCount": "{count}件のドキュメント",
+    "notFound": "ドキュメントが見つかりません",
+    "prevDoc": "前へ",
+    "nextDoc": "次へ",
+    "backToCollection": "{title}に戻る",
+    "backToCollections": "コレクションに戻る"
+  },
+  "momentsPage": {
+    "title": "瞬間",
+    "pageTitle": "瞬間",
+    "description": "日常の瞬間",
+    "readMore": "もっと読む...",
+    "photoAlt": "写真 {index}",
+    "morePhotos": "あと {count}枚の写真...",
+    "notFound": "瞬間が見つかりません",
+    "detailTitle": "瞬間 - {time}",
+    "photoAltOpenGraph": "瞬間の写真"
+  },
+  "comments": {
+    "title": "コメント"
+  },
+  "musicPlayer": {
+    "browserNotSupport": "お使いのブラウザはオーディオ再生をサポートしていません"
+  },
+  "friends": {
+    "title": "友達",
+    "pageTitle": "友達",
+    "description": "私の友達",
+    "empty": "この人はまだ友達がいません！",
+    "loadError": "友達の読み込みに失敗しました。後でもう一度お試しください。",
+    "howToAdd": "友達リンクの追加方法",
+    "dialogTitle": "友達リンクを追加",
+    "dialogIssue": "GitHub Issue で送信",
+    "dialogPR": "GitHub Pull Request で送信",
+    "dialogEmail": "メールでお問い合わせ",
+    "dialogOther": "他の方法(Bilibili, QQ, WeChat...)で送信",
+    "dialogDataFormat": "次の形式で情報を提供してください：",
+    "paginationPrev": "前へ",
+    "paginationNext": "次へ"
+  },
+  "gitHubCard": {
+    "loading": "GitHub データを取得中...",
+    "error": "ユーザー情報を読み込めません",
+    "starsEarned": "獲得 Stars",
+    "totalForks": "総 Forks",
+    "followers": "フォロワー",
+    "totalCommits": "総 Commits",
+    "repositories": "リポジトリ",
+    "topLanguage": "トップ言語",
+    "topLanguages": "トップ言語 (リポジトリ数順)",
+    "noLanguage": "言語が検出されません",
+    "mostPopularRepos": "最も人気のあるリポジトリ",
+    "noRepos": "リポジトリはまだありません",
+    "githubProfile": "GitHub プロフィール"
+  }
+}
