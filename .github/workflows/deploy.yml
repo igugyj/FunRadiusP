@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_SITE_NAME: ${{ vars.NEXT_PUBLIC_SITE_NAME }}
+          NEXT_PUBLIC_SITE_DESCRIPTION: ${{ vars.NEXT_PUBLIC_SITE_DESCRIPTION }}
+          NEXT_PUBLIC_AUTHOR_NAME: ${{ vars.NEXT_PUBLIC_AUTHOR_NAME }}
+          NEXT_PUBLIC_DEFAULT_LANGUAGE: ${{ vars.NEXT_PUBLIC_DEFAULT_LANGUAGE }}
+          NEXT_PUBLIC_GITHUB_USERNAME: ${{ vars.NEXT_PUBLIC_GITHUB_USERNAME }}
+          NEXT_PUBLIC_GISCUS_REPO: ${{ vars.NEXT_PUBLIC_GISCUS_REPO }}
+          NEXT_PUBLIC_GISCUS_REPO_ID: ${{ vars.NEXT_PUBLIC_GISCUS_REPO_ID }}
+          NEXT_PUBLIC_GISCUS_CATEGORY: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY }}
+          NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
+          NEXT_PUBLIC_LIVE2D_MODELS: ${{ vars.NEXT_PUBLIC_LIVE2D_MODELS }}
+          NEXT_PUBLIC_LIVE2D_DOCKED_POSITION: ${{ vars.NEXT_PUBLIC_LIVE2D_DOCKED_POSITION }}
+          NEXT_PUBLIC_LIVE2D_POSITION: ${{ vars.NEXT_PUBLIC_LIVE2D_POSITION }}
+          NEXT_PUBLIC_LIVE2D_SCALE: ${{ vars.NEXT_PUBLIC_LIVE2D_SCALE }}
+          NEXT_PUBLIC_LIVE2D_STAGE_HEIGHT: ${{ vars.NEXT_PUBLIC_LIVE2D_STAGE_HEIGHT }}
+          NEXT_PUBLIC_PARTICLES_ENABLED: ${{ vars.NEXT_PUBLIC_PARTICLES_ENABLED }}
+          NEXT_PUBLIC_PARTICLES_TYPE: ${{ vars.NEXT_PUBLIC_PARTICLES_TYPE }}
+          NEXT_PUBLIC_PARTICLES_COUNT: ${{ vars.NEXT_PUBLIC_PARTICLES_COUNT }}
+          NEXT_PUBLIC_PARTICLES_ZINDEX: ${{ vars.NEXT_PUBLIC_PARTICLES_ZINDEX }}
+          NEXT_PUBLIC_DEFAULT_PRIMARY_COLOR: ${{ vars.NEXT_PUBLIC_DEFAULT_PRIMARY_COLOR }}
+          NEXT_PUBLIC_HEADER_AUTO_HIDE_ENABLED: ${{ vars.NEXT_PUBLIC_HEADER_AUTO_HIDE_ENABLED }}
+          NEXT_PUBLIC_FRIENDS_JSON_URL: ${{ vars.NEXT_PUBLIC_FRIENDS_JSON_URL }}
+          NEXT_PUBLIC_FRIENDS_ITEMS_PER_PAGE: ${{ vars.NEXT_PUBLIC_FRIENDS_ITEMS_PER_PAGE }}
+          NEXT_PUBLIC_COMPONENT_OPACITY: ${{ vars.NEXT_PUBLIC_COMPONENT_OPACITY }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          NEXT_PUBLIC_GOOGLE_VERIFICATION: ${{ vars.NEXT_PUBLIC_GOOGLE_VERIFICATION }}
+          NEXT_PUBLIC_BING_VERIFICATION: ${{ secrets.NEXT_PUBLIC_BING_VERIFICATION }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
