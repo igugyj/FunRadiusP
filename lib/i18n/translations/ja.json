@@ -185,7 +185,8 @@
     "morePhotos": "あと {count}枚の写真...",
     "notFound": "瞬間が見つかりません",
     "detailTitle": "瞬間 - {time}",
-    "photoAltOpenGraph": "瞬間の写真"
+    "photoAltOpenGraph": "瞬間の写真",
+    "backToMoments": "モーメントに戻る"
   },
   "comments": {
     "title": "コメント"

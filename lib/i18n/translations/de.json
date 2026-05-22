@@ -185,7 +185,8 @@
     "morePhotos": "Und {count} weitere Fotos...",
     "notFound": "Moment nicht gefunden",
     "detailTitle": "Moment - {time}",
-    "photoAltOpenGraph": "Momentfoto"
+    "photoAltOpenGraph": "Momentfoto",
+    "backToMoments": "Zurück zu Momente"
   },
   "comments": {
     "title": "Kommentare"

@@ -185,7 +185,8 @@
         "morePhotos": "还有 {count} 张照片...",
         "notFound": "随笔未找到",
         "detailTitle": "随笔 - {time}",
-        "photoAltOpenGraph": "随笔照片"
+        "photoAltOpenGraph": "随笔照片",
+        "backToMoments": "返回随笔"
     },
     "comments": {
         "title": "评论"

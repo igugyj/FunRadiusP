@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import GiscusComments from "@/components/features/GiscusComments";
 import SafeImage from "@/components/ui/SafeImage";
@@ -52,6 +53,15 @@ export default function MomentsDetailPageClient({
           : "max-w-4xl mx-auto px-4 pt-20"
       }
     >
+      <Link
+        href="/moments"
+        className="inline-flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity"
+        style={{ color: "var(--primary)" }}
+      >
+        <span>←</span>
+        <span>{t("momentsPage.backToMoments")}</span>
+      </Link>
+
       <div className="card">
         <div
           className="flex items-center text-sm mb-6"

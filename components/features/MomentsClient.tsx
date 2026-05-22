@@ -78,7 +78,7 @@ export default function MomentsClient({
                   className="flex items-center text-sm mb-4"
                   style={{ color: "var(--text)", opacity: 0.7 }}
                 >
-                  <span>{formatMomentTime(moment.time)}</span>
+                  <span suppressHydrationWarning>{formatMomentTime(moment.time)}</span>
                 </div>
 
                 {/* 纯 CSS 限制高度，简单可靠 */}
