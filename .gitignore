@@ -138,6 +138,6 @@ content/docs/Python
 content/docs/Cpp
 
 .venv
-
+.history
 token.txt
 .indexnow-cache.json
