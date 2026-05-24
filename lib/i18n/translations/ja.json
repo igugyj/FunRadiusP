@@ -14,7 +14,8 @@
     "projects": "プロジェクト",
     "demos": "デモ",
     "information": "情報",
-    "rss": "RSS"
+    "rss": "RSS",
+    "search": "検索"
   },
   "theme": {
     "toggleLight": "ライトテーマに切り替え",
@@ -209,6 +210,16 @@
     "dialogDataFormat": "次の形式で情報を提供してください：",
     "paginationPrev": "前へ",
     "paginationNext": "次へ"
+  },
+  "search": {
+    "trigger": "検索",
+    "placeholder": "記事、ドキュメント、瞬間を検索...",
+    "search": "検索",
+    "resultsTitle": "検索結果",
+    "resultsFor": "検索: {query}",
+    "resultCount": "{count} 件",
+    "noResults": "見つかりませんでした",
+    "noQuery": "キーワードを入力"
   },
   "gitHubCard": {
     "loading": "GitHub データを取得中...",

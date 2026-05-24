@@ -133,6 +133,7 @@ public/rss.xml
 public/robots.txt
 public/BingSiteAuth.xml
 public/*.txt
+public/search-index.ndjson
 
 content/docs/Python
 content/docs/Cpp

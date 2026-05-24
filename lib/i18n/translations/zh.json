@@ -14,7 +14,8 @@
     "projects": "项目",
     "demos": "Demo",
     "information": "信息",
-    "rss": "RSS"
+    "rss": "RSS",
+    "search": "搜索"
 },
     "theme": {
         "toggleLight": "切换到亮色主题",
@@ -209,6 +210,16 @@
     "dialogDataFormat": "请按以下格式提供信息：",
     "paginationPrev": "上一页",
     "paginationNext": "下一页"
+  },
+  "search": {
+    "trigger": "搜索",
+    "placeholder": "搜索文章、文档、随笔...",
+    "search": "搜索",
+    "resultsTitle": "搜索结果",
+    "resultsFor": "搜索：{query}",
+    "resultCount": "{count} 条结果",
+    "noResults": "没有找到相关内容",
+    "noQuery": "输入关键词开始搜索"
   },
   "gitHubCard": {
     "loading": "正在获取 GitHub 数据...",

@@ -14,7 +14,8 @@
     "projects": "Proyectos",
     "demos": "Demos",
     "information": "Información",
-    "rss": "RSS"
+    "rss": "RSS",
+    "search": "Buscar"
   },
   "theme": {
     "toggleLight": "Cambiar a tema claro",
@@ -209,6 +210,16 @@
     "dialogDataFormat": "Por favor, proporcione la información en el siguiente formato:",
     "paginationPrev": "Anterior",
     "paginationNext": "Siguiente"
+  },
+  "search": {
+    "trigger": "Buscar",
+    "placeholder": "Buscar artículos, documentos, momentos...",
+    "search": "Buscar",
+    "resultsTitle": "Resultados de búsqueda",
+    "resultsFor": "Búsqueda: {query}",
+    "resultCount": "{count} resultados",
+    "noResults": "Sin resultados",
+    "noQuery": "Escribe una palabra clave"
   },
   "gitHubCard": {
     "loading": "Obteniendo datos de GitHub...",
