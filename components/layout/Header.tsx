@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "../ui/ThemeToggle";
 import ColorPicker from "../ui/ColorPicker";
 import LanguageToggle from "../i18n/LanguageToggle";
+import SearchTrigger from "./SearchTrigger";
 import { useLanguage } from "@/lib/i18n";
 import { detectIsMobile } from "@/lib/device-detector";
 
@@ -287,6 +288,9 @@ export default function Header() {
               )}
             </div>
           </div>
+
+          {/* 搜索按钮 */}
+          <SearchTrigger />
 
           {/* 主题颜色切换按钮 */}
           <ColorPicker />

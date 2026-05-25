@@ -96,6 +96,12 @@ export default function Footer() {
           {t("footer.poweredBy")}
         </p>
         <p
+          className="text-sm mt-2"
+          style={{ color: "var(--text)", opacity: 0.5 }}
+        >
+          Built at {process.env.NEXT_PUBLIC_BUILD_TIME || "unknown"}
+        </p>
+        <p
           className="text-sm mt-2 flex items-center justify-center gap-2"
           style={{ color: "var(--text)", opacity: 0.7 }}
         >

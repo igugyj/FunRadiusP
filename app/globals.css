@@ -764,6 +764,149 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+/* ===== 搜索功能样式 ===== */
+
+/* 搜索结果卡片 */
+.search-result-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.15s ease;
+  background-color: color-mix(in srgb, var(--background) calc(var(--component-opacity) * 100%), transparent);
+  border: 1px solid rgba(255, 105, 180, calc(0.1 * var(--component-opacity)));
+  text-decoration: none;
+  color: var(--text);
+}
+.search-result-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 搜索类型标签 */
+.search-type-badge {
+  flex-shrink: 0;
+  width: 4.5rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.125rem 0;
+  border-radius: 0.25rem;
+  font-family: "MapleMono", monospace;
+  letter-spacing: 0.05em;
+}
+
+.search-result-title {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 0;
+  max-width: 30%;
+}
+
+.search-result-sep {
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+
+.search-result-snippet {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.5;
+}
+
+/* 头部搜索下拉 */
+.search-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  z-index: 50;
+  background-color: color-mix(in srgb, var(--background) calc(var(--component-opacity) * 100%), transparent);
+  border: 1px solid var(--secondary);
+}
+
+.search-input-field {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  width: 16rem;
+  white-space: nowrap;
+  background-color: color-mix(in srgb, var(--secondary) calc(var(--component-opacity) * 100%), transparent);
+  color: var(--text);
+}
+@media (min-width: 768px) {
+  .search-input-field {
+    width: 18rem;
+  }
+}
+
+.search-submit-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  transition: opacity 0.15s ease;
+  background-color: var(--primary);
+  color: white;
+}
+.search-submit-btn:hover {
+  opacity: 0.8;
+}
+
+/* 搜索页搜索栏 */
+.search-page-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  background-color: color-mix(in srgb, var(--background) calc(var(--component-opacity) * 100%), transparent);
+  border: 1px solid var(--secondary);
+}
+
+.search-page-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  white-space: nowrap;
+  background-color: color-mix(in srgb, var(--secondary) calc(var(--component-opacity) * 100%), transparent);
+  color: var(--text);
+}
+
+.search-page-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  transition: opacity 0.15s ease;
+  background-color: var(--primary);
+  color: white;
+}
+.search-page-btn:hover {
+  opacity: 0.8;
+}
+
 /* 音乐播放器样式 */
 .netease-player, .local-player {
   background-color: color-mix(in srgb, rgba(255, 255, 255, 1) calc(var(--component-opacity) * 80%), transparent) !important;

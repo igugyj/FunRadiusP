@@ -14,7 +14,8 @@
     "projects": "Projets",
     "demos": "Démos",
     "information": "Informations",
-    "rss": "RSS"
+    "rss": "RSS",
+    "search": "Recherche"
   },
   "theme": {
     "toggleLight": "Passer au thème clair",
@@ -185,7 +186,8 @@
     "morePhotos": "Et {count} photos de plus...",
     "notFound": "Moment non trouvé",
     "detailTitle": "Moment - {time}",
-    "photoAltOpenGraph": "Photo du moment"
+    "photoAltOpenGraph": "Photo du moment",
+    "backToMoments": "Retour aux Moments"
   },
   "comments": {
     "title": "Commentaires"
@@ -208,6 +210,16 @@
     "dialogDataFormat": "Veuillez fournir les informations dans le format suivant :",
     "paginationPrev": "Précédent",
     "paginationNext": "Suivant"
+  },
+  "search": {
+    "trigger": "Recherche",
+    "placeholder": "Rechercher articles, docs, moments...",
+    "search": "Rechercher",
+    "resultsTitle": "Résultats de recherche",
+    "resultsFor": "Recherche : {query}",
+    "resultCount": "{count} résultats",
+    "noResults": "Aucun résultat",
+    "noQuery": "Saisissez un mot-clé"
   },
   "gitHubCard": {
     "loading": "Récupération des données GitHub...",
