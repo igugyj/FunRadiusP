@@ -14,7 +14,6 @@
     "projects": "Proyectos",
     "demos": "Demos",
     "information": "Información",
-    "rss": "RSS",
     "search": "Buscar"
   },
   "theme": {
@@ -26,13 +25,7 @@
     "blue": "Azul (A)"
   },
   "language": {
-    "switch": "Cambiar idioma",
-    "zh": "中文",
-    "en": "English",
-    "es": "Español",
-    "ja": "日本語",
-    "de": "Deutsch",
-    "fr": "Français"
+    "switch": "Cambiar idioma"
   },
   "pagination": {
     "prev": "Anterior",
@@ -87,7 +80,6 @@
   },
   "footer": {
     "travelLink": "Inicio de viaje",
-    "copyright": "© {year} {siteName}. Todos los derechos reservados.",
     "poweredBy": "Construido con Next.js + TypeScript + Tailwind CSS",
     "poweredByShort": "Construido con Next.js",
     "githubThanks": "Gracias a la mayor comunidad de código del mundo",

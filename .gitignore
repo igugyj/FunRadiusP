@@ -76,6 +76,9 @@ lerna-debug.log*
 # Next.js build output
 .next
 output
+next-env.d.ts
+
+
 
 # Development post images (copied from content/posts)
 /public/posts

@@ -1,0 +1,16 @@
+{
+  "footer": {
+    "copyright": "© {year} {siteName}. CC BY-NC-SA 4.0"
+  },
+  "language": {
+    "zh": "中文",
+    "en": "English",
+    "es": "Español",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "fr": "Français"
+  },
+  "navigation": {
+    "rss": "RSS"
+  }
+}

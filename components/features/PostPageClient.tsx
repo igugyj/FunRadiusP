@@ -107,8 +107,8 @@ export default function PostPageClient({
                 className="text-sm"
                 style={{ color: "var(--text)", opacity: 0.7 }}
               >
-                © {_year} {process.env.NEXT_PUBLIC_AUTHOR_NAME}. All rights
-                reserved.
+                © {_year} {process.env.NEXT_PUBLIC_AUTHOR_NAME}. CC BY-NC-SA
+                4.0.
               </p>
             </div>
 

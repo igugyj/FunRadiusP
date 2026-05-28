@@ -14,7 +14,6 @@
     "projects": "プロジェクト",
     "demos": "デモ",
     "information": "情報",
-    "rss": "RSS",
     "search": "検索"
   },
   "theme": {
@@ -26,13 +25,7 @@
     "blue": "青 (B)"
   },
   "language": {
-    "switch": "言語を切り替え",
-    "zh": "中文",
-    "en": "English",
-    "es": "Español",
-    "ja": "日本語",
-    "de": "Deutsch",
-    "fr": "Français"
+    "switch": "言語を切り替え"
   },
   "pagination": {
     "prev": "前へ",
@@ -87,7 +80,6 @@
   },
   "footer": {
     "travelLink": "旅を開始",
-    "copyright": "© {year} {siteName}. 全著作権所有。",
     "poweredBy": "Next.js + TypeScript + Tailwind CSS で構築",
     "poweredByShort": "Next.js で構築",
     "githubThanks": "世界最大のコードコミュニティに感謝",

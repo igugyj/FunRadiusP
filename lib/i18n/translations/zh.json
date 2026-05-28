@@ -14,7 +14,8 @@
     "projects": "项目",
     "demos": "Demo",
     "information": "信息",
-    "rss": "RSS",
+
+        
     "search": "搜索"
 },
     "theme": {
@@ -26,13 +27,7 @@
         "blue": "蓝色 (B)"
     },
     "language": {
-        "switch": "切换语言",
-        "zh": "中文",
-        "en": "English",
-        "es": "Español",
-        "ja": "日本語",
-        "de": "Deutsch",
-        "fr": "Français"
+        "switch": "切换语言"
     },
     "pagination": {
         "prev": "上一页",
@@ -87,7 +82,6 @@
     },
     "footer": {
         "travelLink": "异次元之旅",
-        "copyright": "© {year} {siteName}. 保留所有权利.",
         "poweredBy": "使用 Next.js + TypeScript + Tailwind CSS 构建",
         "poweredByShort": "使用 Next.js 构建",
         "githubThanks": "感谢全世界最大的同性交友网站",

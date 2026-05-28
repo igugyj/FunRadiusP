@@ -7,27 +7,7 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import zhTranslations from "./translations/zh.json";
-import enTranslations from "./translations/en.json";
-import esTranslations from "./translations/es.json";
-import jaTranslations from "./translations/ja.json";
-import deTranslations from "./translations/de.json";
-import frTranslations from "./translations/fr.json";
-
-export type Language = "zh" | "en" | "es" | "ja" | "de" | "fr";
-
-interface Translations {
-  [key: string]: any;
-}
-
-const translations: Record<Language, Translations> = {
-  zh: zhTranslations,
-  en: enTranslations,
-  es: esTranslations,
-  ja: jaTranslations,
-  de: deTranslations,
-  fr: frTranslations,
-};
+import { getNestedValue, formatString, translations, Language } from "./utils";
 
 interface LanguageContextType {
   language: Language;
@@ -70,28 +50,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   };
 
   const t = (key: string, params?: Record<string, string | number>): string => {
-    const keys = key.split(".");
-    let value: any = translations[language];
-
-    for (const k of keys) {
-      if (value && typeof value === "object") {
-        value = value[k];
-      } else {
-        return key;
-      }
-    }
-
-    if (typeof value !== "string") {
-      return key;
-    }
-
-    if (params) {
-      return value.replace(/\{(\w+)\}/g, (_, key) => {
-        return params[key]?.toString() || `{${key}}`;
-      });
-    }
-
-    return value;
+    const value = getNestedValue(translations[language], key);
+    return formatString(value, params);
   };
 
   return (

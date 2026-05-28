@@ -1,25 +1,5 @@
 import type { Metadata } from "next";
-import zhTranslations from "./translations/zh.json";
-import enTranslations from "./translations/en.json";
-import esTranslations from "./translations/es.json";
-import jaTranslations from "./translations/ja.json";
-import deTranslations from "./translations/de.json";
-import frTranslations from "./translations/fr.json";
-
-export type Language = "zh" | "en" | "es" | "ja" | "de" | "fr";
-
-interface Translations {
-  [key: string]: any;
-}
-
-const translations: Record<Language, Translations> = {
-  zh: zhTranslations,
-  en: enTranslations,
-  es: esTranslations,
-  ja: jaTranslations,
-  de: deTranslations,
-  fr: frTranslations,
-};
+import { getNestedValue, formatString, translations, Language } from "./utils";
 
 const defaultLang = (process.env.NEXT_PUBLIC_DEFAULT_LANGUAGE || "zh") as Language;
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "FunRadiusP";
@@ -33,31 +13,13 @@ function withSlash(path: string): string {
   return path === "" || path.endsWith("/") ? path : `${path}/`;
 }
 
-function getNestedValue(obj: any, path: string): string {
-  const keys = path.split(".");
-  let value = obj;
-  for (const key of keys) {
-    if (value && typeof value === "object") {
-      value = value[key];
-    } else {
-      return path;
-    }
-  }
-  return typeof value === "string" ? value : path;
-}
-
 function t(lang: Language, key: string): string {
   return getNestedValue(translations[lang], key);
 }
 
 export function formatTranslation(key: string, params: Record<string, string | number> = {}): string {
-  let value = t(defaultLang, key);
-  if (Object.keys(params).length > 0) {
-    value = value.replace(/\{(\w+)\}/g, (_, paramKey) => {
-      return params[paramKey]?.toString() || `{${paramKey}}`;
-    });
-  }
-  return value;
+  const value = t(defaultLang, key);
+  return formatString(value, params);
 }
 
 export function buildMetadata(path: string, title: string, description: string, ogType: "website" | "article" = "website"): Metadata {
