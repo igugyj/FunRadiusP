@@ -3,6 +3,7 @@
 import { FaGithub, FaSteam } from "react-icons/fa";
 // 从 react-icons/si (Simple Icons) 导入品牌图标
 import { SiBilibili, SiGitee } from "react-icons/si";
+import { HiSquares2X2 } from "react-icons/hi2";
 
 export default function ProfileCard() {
   return (
@@ -118,6 +119,25 @@ export default function ProfileCard() {
           }}
         >
           <SiGitee size={16} /> Gitee
+        </a>
+        {/* works gallery */}
+        <a
+          href="https://worksgallery.pages.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+            background: "#f0f4f9",
+            padding: "6px 18px",
+            borderRadius: 40,
+            color: "#2d6a4f",
+          }}
+        >
+          <HiSquares2X2 size={16} /> Gallery
         </a>
       </div>
     </div>
