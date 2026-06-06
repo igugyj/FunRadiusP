@@ -1,6 +1,6 @@
 {
-    "body": "## v20260503.13.5 - 2026-05-03\r\n\r\n### 更新内容\r\n\r\n- **文档更新**：更新用户文档，提升使用指引的准确性与完整性。\r\n- **TTS 设置页面**：优化页面显示逻辑，改善界面交互体验。\r\n- **VoiceVox 模型**：优化模型加载时 StyleID 的载入逻辑，提高稳定性和正确性。\r\n- **翻译功能**：新增腾讯云翻译能力，并补充相关配置说明与文档支持。\r\n- **翻译功能**：libretranslate 简单支持\r\n\r\n\r\n## What's Changed\r\n* Update sync-to-gitee.yml by @igugyj in https://github.com/igugyj/Pelr/pull/19\r\n* release: 20260503.13.5 by @igugyj in https://github.com/igugyj/Pelr/pull/20\r\n\r\n\r\n\r\n\r\n**Full Changelog**: https://github.com/igugyj/Pelr/compare/20260405.12.18...20260503.13.5",
-    "tag_name": "20260503.13.5",
-    "download_url": "https://sourceforge.net/projects/pfolg-plauncher/files/latest/download",
-    "published_at": "2026-05-03 15:36:45"
+    "body": "## v0.6.1 - 2026-06-06\r\n\r\n### 新特性\r\n\r\n- **多语言界面** — 界面已支持简体中文与英文动态切换\r\n- **唇形模拟** — 播放语音时模型嘴部自动张合，模拟说话口型动态\r\n- **语言模块正式可用** — 完整的多语言切换功能已集成\r\n\r\n### 重构与优化\r\n\r\n- **翻译模块重构** — 优化 Qt6 翻译配置，完善 CMake 构建流程\r\n- **构建系统优化** — 新增 `.lupdate` 清理规则，完善构建产物清理脚本\r\n- **文档更新** — 更新 Roadmap 标记已完成功能（快捷键、热加载配置）\r\n\r\n### 问题修复\r\n\r\n- **修复系统监控面板按钮尺寸异常** — 调整 `Clear` 和 `Clear All` 按钮自适应大小\r\n\r\n### 文档与仓库\r\n\r\n- **第三方依赖** — 新增 miniaudio 单文件音频解码库及相关鸣谢\r\n- **开发者指引** — 完善贡献与开发文档\r\n\r\n### 其他\r\n\r\n- **引入新依赖** — 新增 miniaudio 子模块，需执行 `git submodule update --init --recursive`\r\n- **版本迭代** — 自 v0.4.1 起累计 6 项功能增强与修复\r\n\r\n## What's Changed\r\n* release: v0.6.1 by @igugyj in https://github.com/igugyj/Pelr/pull/29\r\n\r\n\r\n**Full Changelog**: https://github.com/igugyj/Pelr/compare/v0.4.1...v0.6.1\r\n\r\nhttps://github.com/igugyj/Pelr/blob/master/docs/ChangeLog.md",
+    "tag_name": "v0.6.1",
+    "download_url": "https://github.com/igugyj/Pelr",
+    "published_at": "2026-06-06 18:40"
 }
