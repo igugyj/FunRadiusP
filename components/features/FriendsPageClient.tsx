@@ -270,7 +270,7 @@ export default function FriendsPageClient() {
         <div className="space-y-4">
           <div className="space-y-2">
             <a
-              href="https://github.com/igugyj/pblog-comments/issues/new"
+              href="https://github.com/igugyj/pblog-comments/issues/new?template=friend-link-request.yml"
               target="_blank"
               rel="noopener noreferrer"
               className="block p-4 rounded-lg transition-all hover:opacity-80"
