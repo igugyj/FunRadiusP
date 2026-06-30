@@ -213,6 +213,32 @@
     "noResults": "Aucun résultat",
     "noQuery": "Saisissez un mot-clé"
   },
+  "lastUpdateStatus": {
+    "prefix": "Site pas mis à jour depuis {days}",
+    "statusPrefix": "Le propriétaire est peut-être : ",
+    "units": {
+      "lessThanOne": "moins d'1 jour",
+      "day": "{n} jour(s)",
+      "month": "{n} mois",
+      "year": "{n} an(s)"
+    },
+    "levels": [
+      "vient de poster et est parti manger / faire la sieste",
+      "grasse mat' le week-end, noyé sous le boulot/les cours",
+      "en train de binge-watcher / jouer, syndrome d'épuisement numérique",
+      "en pleine procrastination — a ouvert le dashboard puis refermé",
+      "a complètement oublié que ce site existe",
+      "accro à un nouveau hobby (camping/photo/velo/pêche)",
+      "a trompé ce site avec une autre stack technique",
+      "traverse un séisme de vie (diplôme / taf / rupture / déménagement)",
+      "a quitté la tech, livre des repas ou conduit Uber",
+      "a oublié le mot de passe admin — bonne chance pour récupérer",
+      "s'est rangé — le site est devenu la pierre tombale de sa jeunesse",
+      "en pleine crise de la quarantaine, a honte de son ancien code",
+      "retraité ou décédé (le webmaster de Schrödinger)",
+      "a physiquement ascendé, héritage numérique non réclamé — brûlez des offrandes"
+    ]
+  },
   "gitHubCard": {
     "loading": "Récupération des données GitHub...",
     "error": "Impossible de charger les informations utilisateur",

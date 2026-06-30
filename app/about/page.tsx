@@ -4,6 +4,7 @@ import ProfileCard from "../../components/ui/ProfileCard";
 import PageTitle from "../../components/ui/PageTitle";
 import { generatePageMetadata } from "../../lib/i18n/metadata";
 import GitHubCard from "../../components/features/GitHubCard";
+import LastUpdateStatus from "../../components/features/LastUpdateStatus";
 export function generateMetadata(): Metadata {
   return generatePageMetadata({
     path: "/about",
@@ -27,6 +28,7 @@ export default async function AboutPage() {
           style={{ display: "block", margin: "0 auto", textAlign: "center" }}
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
+        <LastUpdateStatus buildTime={process.env.NEXT_PUBLIC_BUILD_TIME ?? ""} />
       </div>
     </div>
   );

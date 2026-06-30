@@ -213,6 +213,32 @@
     "noResults": "No results found",
     "noQuery": "Type a keyword to search"
   },
+  "lastUpdateStatus": {
+    "prefix": "Site hasn't been updated for {days}",
+    "statusPrefix": "Owner may be: ",
+    "units": {
+      "lessThanOne": "less than a day",
+      "day": "{n} day(s)",
+      "month": "{n} month(s)",
+      "year": "{n} year(s)"
+    },
+    "levels": [
+      "just posted and went to touch grass",
+      "sleeping in, drowning in work/study",
+      "binge-watching shows / doom-scrolling all day",
+      "procrastinating — opened dashboard and noped out",
+      "completely forgot this site exists",
+      "hyperfixated on a new hobby (camping/photography/cycling/fishing)",
+      "cheating on this site with another tech stack",
+      "going through a life earthquake (graduation / job change / breakup / moving)",
+      "quit tech, now driving Uber or delivering food",
+      "forgot the admin password — permanently locked out",
+      "settled down — this site is now a digital youth tombstone",
+      "hitting midlife crisis, cringes at old code like a high-school phase",
+      "retired or deceased (Schrödinger's webmaster)",
+      "physically ascended, digital heritage unclaimed — please burn offerings"
+    ]
+  },
   "gitHubCard": {
     "loading": "Fetching GitHub data...",
     "error": "Unable to load user info",

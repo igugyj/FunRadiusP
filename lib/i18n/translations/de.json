@@ -213,6 +213,32 @@
     "noResults": "Keine Ergebnisse",
     "noQuery": "Suchbegriff eingeben"
   },
+  "lastUpdateStatus": {
+    "prefix": "Seite seit {days} nicht aktualisiert",
+    "statusPrefix": "Betreiber ist wohl: ",
+    "units": {
+      "lessThanOne": "weniger als 1 Tag",
+      "day": "{n} Tag(e)",
+      "month": "{n} Monat(e)",
+      "year": "{n} Jahr(e)"
+    },
+    "levels": [
+      "hat grad erst gepostet und ist jetzt essen / am Prokrastinieren",
+      "ausgeschlafen am Wochenende, in Arbeit/Studium ertrunken",
+      "am Binge-Watching / Zocken — digitaler Verfall",
+      "Aufschieberitis — Dashboard geöffnet, gleich wieder zu",
+      "komplett vergessen, dass die Website existiert",
+      "vernarrt in ein neues Hobby (Camping/Fotografie/Radeln/Angeln)",
+      "fremdgegangen mit einem anderen Tech-Stack",
+      "mitten im Leben-Chaos (Abschluss/Jobwechsel/Trennung/Umzug)",
+      "aus der IT ausgestiegen, fährt jetzt Lieferando / Uber",
+      "Admin-Passwort vergessen — für immer weggesperrt",
+      "hat Familie gegründet — die Website ist sein digitales Jugendgrab",
+      "in der Midlife-Crisis, schämt sich für seinen eigenen Legacy-Code",
+      "im Ruhestand oder verstorben (Schrödingers Webmaster)",
+      "physisch aufgestiegen, digitales Erbe nicht abgeholt — bitte Opfer verbrennen"
+    ]
+  },
   "gitHubCard": {
     "loading": "GitHub-Daten werden abgerufen...",
     "error": "Benutzerinformationen können nicht geladen werden",

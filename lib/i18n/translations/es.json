@@ -213,6 +213,32 @@
     "noResults": "Sin resultados",
     "noQuery": "Escribe una palabra clave"
   },
+  "lastUpdateStatus": {
+    "prefix": "El sitio no se actualiza desde hace {days}",
+    "statusPrefix": "El dueño puede estar: ",
+    "units": {
+      "lessThanOne": "menos de 1 día",
+      "day": "{n} día(s)",
+      "month": "{n} mes(es)",
+      "year": "{n} año(s)"
+    },
+    "levels": [
+      "acaba de publicar y se fue a comer / echar la siesta",
+      "durmiendo el finde, ahogado en trabajo/estudio",
+      "maratoneando series / viciado a los juegos",
+      "con pereza — abrió el panel y lo cerró al instante",
+      "se olvidó por completo de que existe esta web",
+      "enganchado a un nuevo hobby (cámping/foto/bici/pesca)",
+      "se enamoró de otro proyecto / tecnología",
+      "en medio de un terremoto vital (graduación/trabajo/ruptura/mudanza)",
+      "dejó la tecnología, ahora reparte comida / conduce Uber",
+      "olvidó la contraseña del admin — para siempre",
+      "sentó cabeza — la web es la lápida de su juventud",
+      "en la crisis de los 40, le da vergüenza ajena su código viejo",
+      "jubilado o fallecido (el webmaster de Schrödinger)",
+      "ascendió físicamente, herencia digital sin reclamar — quemen ofrendas"
+    ]
+  },
   "gitHubCard": {
     "loading": "Obteniendo datos de GitHub...",
     "error": "No se puede cargar la información del usuario",
