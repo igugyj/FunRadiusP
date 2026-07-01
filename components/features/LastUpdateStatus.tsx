@@ -11,9 +11,9 @@ function getLevelIndex(days: number): number {
 }
 
 const COLORS = {
-  green: { dot: "#22c55e", border: "border-l-green-500", text: "text-green-700" },
-  yellow: { dot: "#eab308", border: "border-l-yellow-500", text: "text-yellow-700" },
-  red: { dot: "#ef4444", border: "border-l-red-500", text: "text-red-700" },
+  green: { dot: "#22c55e", border: "border-l-green-500", text: "text-green-700 dark:text-green-400" },
+  yellow: { dot: "#eab308", border: "border-l-yellow-500", text: "text-yellow-700 dark:text-yellow-400" },
+  red: { dot: "#ef4444", border: "border-l-red-500", text: "text-red-700 dark:text-red-400" },
 } as const;
 
 function getColorKey(days: number): keyof typeof COLORS {
@@ -57,14 +57,16 @@ export default function LastUpdateStatus({ buildTime }: { buildTime: string }) {
 
   return (
     <div
-      className={`mt-8 border-l-4 ${c.border} bg-gray-50 rounded-r-xl px-4 py-3`}
+      className={`mt-8 border-l-4 ${c.border} rounded-r-xl px-4 py-3`}
+      style={{ backgroundColor: "var(--background)" }}
     >
       <div className="flex items-start gap-3">
         <svg
           viewBox="0 0 24 24"
-          className="w-5 h-5 shrink-0 mt-0.5 text-gray-400"
+          className="w-5 h-5 shrink-0 mt-0.5 opacity-50"
           fill="none"
           stroke="currentColor"
+          style={{ color: "var(--text)" }}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -73,10 +75,10 @@ export default function LastUpdateStatus({ buildTime }: { buildTime: string }) {
           <polyline points="12 6 12 12 16 14" />
         </svg>
         <div className="flex-1 min-w-0">
-          <div className="text-gray-500">
+          <div style={{ color: "var(--text)" }}>
             {t("lastUpdateStatus.prefix", { days: daysStr })}
           </div>
-          <div className="text-gray-400 mt-0.5 text-xs">
+          <div className="mt-0.5 text-xs opacity-60" style={{ color: "var(--text)" }}>
             {t("lastUpdateStatus.statusPrefix")}
             {levelText}
           </div>

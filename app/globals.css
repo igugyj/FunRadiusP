@@ -207,6 +207,126 @@ code {
   }
 }
 
+/* 悬浮球卡片 */
+.orb-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-out;
+  --orb-bg: radial-gradient(circle at 35% 35%, hsl(var(--orb-hue), var(--orb-sat), 68%), hsl(var(--orb-hue), var(--orb-sat), 52%) 55%, hsl(var(--orb-hue), var(--orb-sat), 40%));
+  --orb-text: hsl(var(--orb-hue), var(--orb-sat), 18%);
+  --orb-shadow: inset 0 -6px 16px rgba(0,0,0,0.1), 0 8px 28px hsla(var(--orb-hue), var(--orb-sat), 48%, 0.35);
+  background: var(--orb-bg);
+  color: var(--orb-text);
+  box-shadow: var(--orb-shadow);
+  z-index: 1;
+}
+
+.orb-card::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 18%;
+  width: 38%;
+  height: 28%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.55) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dark .orb-card {
+  --orb-bg: radial-gradient(circle at 35% 35%, hsl(var(--orb-hue), var(--orb-sat), 32%), hsl(var(--orb-hue), var(--orb-sat), 22%) 55%, hsl(var(--orb-hue), var(--orb-sat), 13%));
+  --orb-text: hsl(var(--orb-hue), var(--orb-sat), 88%);
+  --orb-shadow: inset 0 -6px 16px rgba(0,0,0,0.3), 0 8px 28px rgba(0,0,0,0.4);
+}
+
+.dark .orb-card::before {
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.18) 0%, transparent 100%);
+}
+
+.orb-card:hover {
+  box-shadow: inset 0 -6px 16px rgba(0,0,0,0.1), 0 16px 48px hsla(var(--orb-hue), var(--orb-sat), 45%, 0.4);
+}
+
+.dark .orb-card:hover {
+  box-shadow: inset 0 -6px 16px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.5);
+}
+
+/* 标签淡入上移动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 点击涟漪动画 */
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
+}
+
+/* 标签 pill 基础样式 — 动态 --hue 由内联 style 注入 */
+.tag-pill {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  --pill-bg: hsl(var(--hue), var(--sat), 72%);
+  --pill-text: hsl(var(--hue), var(--sat), 18%);
+  --pill-hover-bg: hsl(var(--hue), var(--sat), 62%);
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+}
+
+.tag-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--pill-hover-bg);
+}
+
+.dark .tag-pill {
+  --pill-bg: hsl(var(--hue), var(--sat), 26%);
+  --pill-text: hsl(var(--hue), var(--sat), 86%);
+  --pill-hover-bg: hsl(var(--hue), var(--sat), 34%);
+}
+
+.dark .tag-pill:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
 /* 弹跳动画 */
 @keyframes bounce {
   0%, 100% {
@@ -224,6 +344,16 @@ code {
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+/* 标签页卡片浮动 */
+@keyframes float-orb {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
   }
 }
 
