@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
+import { deterministicColor, VIBRANT_COLORS } from "@/lib/colors";
 
 interface TagWithCount {
   tag: string;
@@ -12,22 +13,6 @@ interface TagWithCount {
 interface TagsClientProps {
   tagsWithCount: TagWithCount[];
 }
-
-const PILL_COLORS = [
-  { hue: 330, sat: '72%' },
-  { hue: 15,  sat: '76%' },
-  { hue: 38,  sat: '82%' },
-  { hue: 155, sat: '68%' },
-  { hue: 205, sat: '72%' },
-  { hue: 260, sat: '68%' },
-  { hue: 345, sat: '74%' },
-  { hue: 28,  sat: '78%' },
-  { hue: 48,  sat: '78%' },
-  { hue: 175, sat: '66%' },
-  { hue: 295, sat: '62%' },
-  { hue: 135, sat: '64%' },
-  { hue: 235, sat: '68%' },
-];
 
 function getSizeClass(count: number): { text: string; padding: string } {
   if (count >= 8) return { text: "text-base", padding: "px-5 py-2" };
@@ -50,7 +35,6 @@ function handleRipple(e: React.MouseEvent<HTMLAnchorElement>) {
 export default function TagsClient({ tagsWithCount }: TagsClientProps) {
   const { t } = useLanguage();
   const sorted = [...tagsWithCount].sort((a, b) => b.count - a.count);
-  const mountKey = useRef(Date.now()).current;
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -60,7 +44,7 @@ export default function TagsClient({ tagsWithCount }: TagsClientProps) {
       <div className="card p-8">
         <div className="flex flex-wrap gap-3 justify-center">
           {sorted.map(({ tag, count }, i) => (
-            <TagPill key={`${mountKey}-${tag}`} tag={tag} count={count} index={i} />
+            <TagPill key={tag} tag={tag} count={count} index={i} />
           ))}
         </div>
       </div>
@@ -69,19 +53,28 @@ export default function TagsClient({ tagsWithCount }: TagsClientProps) {
 }
 
 function TagPill({ tag, count, index }: { tag: string; count: number; index: number }) {
-  const [color] = useState(() => PILL_COLORS[Math.floor(Math.random() * PILL_COLORS.length)]);
-  const { hue, sat } = color;
+  const ref = useRef<HTMLAnchorElement>(null);
+  const det = deterministicColor(tag);
   const size = getSizeClass(count);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const pick = VIBRANT_COLORS[Math.floor(Math.random() * VIBRANT_COLORS.length)];
+    el.style.setProperty("--hue", String(pick.hue));
+    el.style.setProperty("--sat", pick.sat);
+  }, []);
+
   return (
     <Link
+      ref={ref}
       href={`/tags/${tag}`}
       onClick={handleRipple}
-      className={`tag-pill ${size.text} ${size.padding}`}
+      className={`tag-pill tag-enter ${size.text} ${size.padding}`}
       style={
         {
-          "--hue": hue,
-          "--sat": sat,
-          animation: "fadeInUp 0.4s ease-out both",
+          "--hue": det.hue,
+          "--sat": det.sat,
           animationDelay: `${index * 10}ms`,
         } as React.CSSProperties
       }
