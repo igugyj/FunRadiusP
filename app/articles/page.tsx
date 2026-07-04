@@ -34,13 +34,14 @@ export default async function ArticlesPage() {
         <PageTitle translationKey="articlesPage.title" />
 
         <div className="space-y-6">
-          {paginatedPosts.map((post) => {
+          {paginatedPosts.map((post, i) => {
             if (!post) return null;
             return (
               <Link
                 key={post.id}
                 href={`/posts/${post.id}`}
-                className="card flex flex-col md:flex-row gap-6 hover:shadow-lg transition-all duration-300 group"
+                className="entrance card flex flex-col md:flex-row gap-6 hover:shadow-lg transition-all duration-300 group"
+                style={{ animationDelay: `${i * 30}ms` }}
               >
                 <div className="flex-1">
                   <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">

@@ -61,7 +61,8 @@ export default function CollectionPageClient({
           <Link
             key={doc.id}
             href={`/docs/${collection}/${encodeURIComponent(doc.id)}`}
-            className="card hover:translate-x-2 transition-all duration-300 block"
+            className="entrance card hover:translate-x-2 transition-all duration-300 block"
+            style={{ animationDelay: `${index * 30}ms` }}
           >
             <div className="flex items-center gap-4">
               <span

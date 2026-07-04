@@ -29,10 +29,10 @@ export default function CategoryPageClient({ category, posts }: CategoryPageClie
         <p className="text-gray-500">{t("categories.noPosts")}</p>
       ) : (
         <div className="space-y-6">
-          {posts.map((post) => {
+          {posts.map((post, i) => {
             if (!post) return null;
             return (
-              <div key={post.id} className="card">
+              <div key={post.id} className="entrance card" style={{ animationDelay: `${i * 30}ms` }}>
                 <h2 className="text-xl font-semibold mb-2">
                   <Link
                     href={`/posts/${post.id}`}

@@ -253,8 +253,25 @@ code {
   transition: transform 0.1s;
 }
 
-.stamp-enter {
+.entrance {
   animation: fadeInUp 0.4s ease-out both;
+}
+
+.archive-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.625rem 1rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  background-color: color-mix(in srgb, var(--background) calc(var(--component-opacity) * 100%), transparent);
+  border: 1px solid rgba(255, 105, 180, calc(0.1 * var(--component-opacity)));
+}
+
+.archive-item:hover {
+  box-shadow: var(--card-shadow);
+  border-color: rgba(255, 105, 180, 0.3);
 }
 
 /* 标签淡入上移动画 */
@@ -313,10 +330,6 @@ code {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.tag-enter {
-  animation: fadeInUp 0.4s ease-out both;
-}
-
 .ripple {
   position: absolute;
   border-radius: 50%;
@@ -361,7 +374,7 @@ code {
 @media (prefers-reduced-motion: reduce) {
   .stamp-card,
   .tag-pill,
-  [class*="fadeInUp"],
+  .entrance,
   [class*="float-orb"] {
     animation: none !important;
     transition: none !important;

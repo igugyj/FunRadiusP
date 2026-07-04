@@ -39,11 +39,12 @@ export default function DocsClient({ collections }: DocsClientProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {collections.map((collection) => (
+          {collections.map((collection, i) => (
             <Link
               key={collection.id}
               href={`/docs/${collection.id}`}
-              className="card hover:translate-y-[-4px] transition-all duration-300 block"
+              className="entrance card hover:translate-y-[-4px] transition-all duration-300 block"
+              style={{ animationDelay: `${i * 40}ms` }}
             >
               <div className="flex items-start gap-4">
                 <span className="text-4xl">{collection.icon}</span>

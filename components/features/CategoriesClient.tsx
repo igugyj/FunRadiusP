@@ -49,7 +49,7 @@ export default function CategoriesClient({
         {sorted.map(({ category, count }, i) => (
           <div
             key={category}
-            className="stamp-enter"
+            className="entrance"
             style={{ animationDelay: `${i * 50}ms` }}
           >
             <StampCard category={category} count={count} />

@@ -70,7 +70,7 @@ function TagPill({ tag, count, index }: { tag: string; count: number; index: num
       ref={ref}
       href={`/tags/${tag}`}
       onClick={handleRipple}
-      className={`tag-pill tag-enter ${size.text} ${size.padding}`}
+      className={`tag-pill entrance ${size.text} ${size.padding}`}
       style={
         {
           "--hue": det.hue,

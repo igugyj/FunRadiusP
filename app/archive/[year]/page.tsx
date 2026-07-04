@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPostsGroupedByYear } from "../../../lib/posts";
-import { formatDate } from "../../../lib/utils";
 import ArchiveYearPageClient from "../../../components/features/ArchiveYearPageClient";
 import { getArchiveYearMetadata } from "../../../lib/i18n/metadata";
 
@@ -37,20 +36,18 @@ export default async function ArchiveYearPage({
 
   const posts = postsByYear[year];
 
-  const formattedPostsByYear: Record<string, any[]> = {};
-  Object.keys(postsByYear).forEach((y) => {
-    formattedPostsByYear[y] = postsByYear[y].map((post) => ({
-      id: post.id,
-      title: post.title,
-      published: formatDate(post.published),
-    }));
+  const toPost = (p: { id: string; title: string; published: string }) => ({
+    id: p.id,
+    title: p.title,
+    published: p.published,
   });
 
-  const formattedPosts = posts.map((post) => ({
-    id: post.id,
-    title: post.title,
-    published: formatDate(post.published),
-  }));
+  const formattedPostsByYear: Record<string, ReturnType<typeof toPost>[]> = {};
+  Object.keys(postsByYear).forEach((y) => {
+    formattedPostsByYear[y] = postsByYear[y].map(toPost);
+  });
+
+  const formattedPosts = posts.map(toPost);
 
   return (
     <ArchiveYearPageClient

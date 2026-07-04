@@ -32,8 +32,8 @@ export default function DemosClient({ demos }: DemosClientProps) {
         </div>
       ) : (
         <div className="grid gap-6">
-          {demos.map((demo) => (
-            <Link key={demo.id} href={`/demos/${demo.id}`} className="block">
+          {demos.map((demo, i) => (
+            <Link key={demo.id} href={`/demos/${demo.id}`} className="entrance block" style={{ animationDelay: `${i * 40}ms` }}>
               <div className="card p-6 hover:shadow-lg transition-shadow duration-300">
                 <h2 className="text-xl font-semibold mb-2 text-primary">
                   {demo.title}

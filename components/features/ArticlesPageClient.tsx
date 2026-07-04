@@ -38,10 +38,10 @@ export default function ArticlesPageClient({
       </h1>
 
       <div className="space-y-6">
-        {paginatedPosts.map((post) => {
+        {paginatedPosts.map((post, i) => {
           if (!post) return null;
           return (
-            <div key={post.id} className="card flex flex-col md:flex-row gap-6">
+            <div key={post.id} className="entrance card flex flex-col md:flex-row gap-6" style={{ animationDelay: `${i * 30}ms` }}>
               <div className="flex-1">
                 <h2 className="text-xl font-semibold mb-2">
                   <Link

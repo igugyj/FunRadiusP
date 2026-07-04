@@ -210,7 +210,9 @@ export default function FriendsPageClient() {
         <>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mb-8">
             {paginatedFriends.map((friend, index) => (
-              <FriendCard key={index} friend={friend} />
+              <div key={index} className="entrance" style={{ animationDelay: `${index * 20}ms` }}>
+                <FriendCard friend={friend} />
+              </div>
             ))}
           </div>
 
