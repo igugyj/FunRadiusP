@@ -61,7 +61,7 @@ export default function FriendCard({ friend }: FriendCardProps) {
         </div>
 
         <p
-          className="text-xs leading-relaxed"
+          className="text-xs leading-relaxed line-clamp-2"
           style={{ color: "var(--text)", opacity: 0.75 }}
         >
           {friend.description}

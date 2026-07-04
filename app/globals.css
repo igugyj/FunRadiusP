@@ -377,6 +377,7 @@ code {
   flex-direction: row;
   align-items: flex-start;
   gap: 12px;
+  height: 100%;
   padding: 12px;
   border-radius: 12px;
   background-color: color-mix(in srgb, var(--background) calc(var(--component-opacity) * 100%), transparent);
