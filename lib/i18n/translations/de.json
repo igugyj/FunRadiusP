@@ -195,7 +195,7 @@
     "loadError": "Fehler beim Laden der Freunde, bitte versuchen Sie es später erneut.",
     "howToAdd": "Wie man einen Freund-Link hinzufügt",
     "dialogTitle": "Freund-Link hinzufügen",
-    "dialogIssue": "Über GitHub Issue einreichen",
+    "dialogIssue": "Über GitHub Issue einreichen (Empfohlen)",
     "dialogPR": "Über GitHub Pull Request einreichen",
     "dialogEmail": "Per E-Mail kontaktieren",
     "dialogOther": "Per Bilibili, QQ, WeChat (...)",

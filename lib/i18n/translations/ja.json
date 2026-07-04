@@ -195,7 +195,7 @@
     "loadError": "友達の読み込みに失敗しました。後でもう一度お試しください。",
     "howToAdd": "友達リンクの追加方法",
     "dialogTitle": "友達リンクを追加",
-    "dialogIssue": "GitHub Issue で送信",
+    "dialogIssue": "GitHub Issue で送信（推奨）",
     "dialogPR": "GitHub Pull Request で送信",
     "dialogEmail": "メールでお問い合わせ",
     "dialogOther": "他の方法(Bilibili, QQ, WeChat...)で送信",

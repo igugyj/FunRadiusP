@@ -195,7 +195,7 @@
     "loadError": "Échec du chargement des amis, veuillez réessayer ultérieurement.",
     "howToAdd": "Comment ajouter un lien d'ami",
     "dialogTitle": "Ajouter un lien d'ami",
-    "dialogIssue": "Soumettre via GitHub Issue",
+    "dialogIssue": "Soumettre via GitHub Issue (Recommandé)",
     "dialogPR": "Soumettre via GitHub Pull Request",
     "dialogEmail": "Contacter par email",
     "dialogOther": "Contacter par Bilibili, QQ, WeChat (...)",

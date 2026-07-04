@@ -195,7 +195,7 @@
     "loadError": "Error al cargar amigos, por favor inténtelo más tarde.",
     "howToAdd": "Cómo agregar un enlace de amigo",
     "dialogTitle": "Agregar Enlace de Amigo",
-    "dialogIssue": "Enviar via GitHub Issue",
+    "dialogIssue": "Enviar via GitHub Issue (Recomendado)",
     "dialogPR": "Enviar via GitHub Pull Request",
     "dialogEmail": "Contactar via Email",
     "dialogOther": "Contactar via Bilibili, QQ, WeChat (...)",

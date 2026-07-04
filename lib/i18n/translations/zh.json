@@ -197,7 +197,7 @@
     "loadError": "友链加载失败，请稍后重试。",
     "howToAdd": "如何添加友链",
     "dialogTitle": "添加友链",
-    "dialogIssue": "通过 GitHub Issue 提交",
+    "dialogIssue": "通过 GitHub Issue 提交（推荐）",
     "dialogPR": "通过 GitHub Pull Request 提交",
     "dialogEmail": "通过邮件联系",
     "dialogOther": "通过其他方式(Bilibili, QQ, WeChat...)",

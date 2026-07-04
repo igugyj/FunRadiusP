@@ -195,7 +195,7 @@
     "loadError": "Failed to load friends, please try again later.",
     "howToAdd": "How to add a friend link",
     "dialogTitle": "Add Friend Link",
-    "dialogIssue": "Submit via GitHub Issue",
+    "dialogIssue": "Submit via GitHub Issue (Recommended)",
     "dialogPR": "Submit via GitHub Pull Request",
     "dialogEmail": "Contact via Email",
     "dialogOther": "Contact via Bilibili, QQ, WeChat (...)",

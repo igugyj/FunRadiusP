@@ -371,11 +371,38 @@ code {
   }
 }
 
+/* 友链卡片 */
+.friend-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: color-mix(in srgb, var(--background) calc(var(--component-opacity) * 100%), transparent);
+  border: 1px solid var(--card-border);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.friend-card:hover {
+  box-shadow: var(--card-shadow);
+  border-color: rgba(255, 105, 180, 0.3);
+}
+
+.friend-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .stamp-card,
   .tag-pill,
   .entrance,
-  [class*="float-orb"] {
+  [class*="float-orb"],
+  .friend-card,
+  .friend-details {
     animation: none !important;
     transition: none !important;
   }
