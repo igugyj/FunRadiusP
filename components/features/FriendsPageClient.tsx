@@ -211,7 +211,11 @@ export default function FriendsPageClient() {
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             {paginatedFriends.map((friend, index) => (
-              <div key={index} className="entrance" style={{ animationDelay: `${index * 20}ms` }}>
+              <div
+                key={index}
+                className="entrance"
+                style={{ animationDelay: `${index * 20}ms` }}
+              >
                 <FriendCard friend={friend} />
               </div>
             ))}
@@ -330,7 +334,7 @@ export default function FriendsPageClient() {
             >
               {`{
   "name": "Pfolg",
-  "link": ["https://pg25-lsae.eu.org","https://pfolg.qzz.io","https://github.com/csy214-beep","https://space.bilibili.com/515553532"],
+  "link": ["https://pg25-lsae.eu.org","https://github.com/igugyj"],
   "description": "Seeking between the ebb and flow of binary tides.",
   "avatar": "https://avatars.githubusercontent.com/u/237149328"
 }`}
