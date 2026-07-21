@@ -45,7 +45,7 @@ export default function ProfileCard() {
         }}
       >
         {/* Bilibili - 使用 Simple Icons 的 SiBilibili */}
-        <a
+        {/* <a
           href="https://space.bilibili.com/515553532"
           target="_blank"
           rel="noopener noreferrer"
@@ -62,8 +62,8 @@ export default function ProfileCard() {
           }}
         >
           <SiBilibili size={16} /> Bilibili
-        </a>
-        {/* GitHub (csy214) - 保持不变，使用 Font Awesome */}
+        </a> */}
+        {/* GitHub - 保持不变，使用 Font Awesome */}
         <a
           href="https://github.com/igugyj"
           target="_blank"
@@ -83,7 +83,7 @@ export default function ProfileCard() {
           <FaGithub size={16} /> GitHub
         </a>
         {/* Steam - 保持不变，使用 Font Awesome */}
-        <a
+        {/* <a
           href="https://steamcommunity.com/profiles/76561199677607305/"
           target="_blank"
           rel="noopener noreferrer"
@@ -100,9 +100,9 @@ export default function ProfileCard() {
           }}
         >
           <FaSteam size={16} /> Steam
-        </a>
+        </a> */}
         {/* Gitee - 使用 Simple Icons 的 SiGitee */}
-        <a
+        {/* <a
           href="https://gitee.com/Pfolg"
           target="_blank"
           rel="noopener noreferrer"
@@ -119,7 +119,7 @@ export default function ProfileCard() {
           }}
         >
           <SiGitee size={16} /> Gitee
-        </a>
+        </a> */}
         {/* works gallery */}
         <a
           href="https://worksgallery.pages.dev/"

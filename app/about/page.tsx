@@ -22,13 +22,15 @@ export default async function AboutPage() {
       <PageTitle translationKey="about.title" />
       <div className="card p-6">
         <ProfileCard />
-        <GitHubCard />
+        {/* <GitHubCard /> */}
         <div
           className="prose max-w-none"
           style={{ display: "block", margin: "0 auto", textAlign: "center" }}
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
-        <LastUpdateStatus buildTime={process.env.NEXT_PUBLIC_BUILD_TIME ?? ""} />
+        <LastUpdateStatus
+          buildTime={process.env.NEXT_PUBLIC_BUILD_TIME ?? ""}
+        />
       </div>
     </div>
   );
