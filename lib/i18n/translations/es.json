@@ -132,11 +132,6 @@
     "description": "Todas las etiquetas de artículos",
     "tagCloud": "Nube de etiquetas"
   },
-  "projectsPage": {
-    "title": "Mis proyectos",
-    "pageTitle": "Proyectos",
-    "description": "Mi muestra de proyectos"
-  },
   "journeyPage": {
     "title": "Mi viaje",
     "pageTitle": "Viaje",

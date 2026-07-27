@@ -132,11 +132,6 @@
     "description": "Tous les tags d'articles",
     "tagCloud": "Nuage de tags"
   },
-  "projectsPage": {
-    "title": "Mes projets",
-    "pageTitle": "Projets",
-    "description": "Ma présentation de projets"
-  },
   "journeyPage": {
     "title": "Mon voyage",
     "pageTitle": "Voyage",

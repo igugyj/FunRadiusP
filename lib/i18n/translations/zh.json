@@ -134,11 +134,6 @@
         "description": "所有文章标签",
         "tagCloud": "标签云"
     },
-    "projectsPage": {
-        "title": "我的项目",
-        "pageTitle": "项目",
-        "description": "我的项目展示"
-    },
     "journeyPage": {
         "title": "我的旅程",
         "pageTitle": "旅程",

@@ -108,7 +108,7 @@ function copyAssets(isDev = false) {
 
   // Copy spec
   let specTotal = 0;
-  const specSubDirs = ["about", "information", "journey", "projects"];
+  const specSubDirs = ["about", "information", "journey"];
   for (const subDir of specSubDirs) {
     const src = path.join(__dirname, "..", "content", "spec", subDir);
     const dest = path.join(baseTargetDir, subDir);

@@ -72,7 +72,7 @@ function generateSitemap() {
   urls.push({ loc: url(""), priority: 1.0, changefreq: "daily" });
 
   const staticPages = [
-    "/about", "/projects", "/information", "/journey",
+    "/about", "/information", "/journey",
     "/articles", "/archive", "/categories", "/tags", "/docs", "/friends",
   ];
   for (const p of staticPages) {

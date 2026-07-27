@@ -132,11 +132,6 @@
     "description": "All article tags",
     "tagCloud": "Tag Cloud"
   },
-  "projectsPage": {
-    "title": "My Projects",
-    "pageTitle": "Projects",
-    "description": "My project showcase"
-  },
   "journeyPage": {
     "title": "My Journey",
     "pageTitle": "Journey",

@@ -132,11 +132,6 @@
     "description": "すべての記事タグ",
     "tagCloud": "タグクラウド"
   },
-  "projectsPage": {
-    "title": "私のプロジェクト",
-    "pageTitle": "プロジェクト",
-    "description": "プロジェクト紹介"
-  },
   "journeyPage": {
     "title": "私の旅",
     "pageTitle": "旅",
