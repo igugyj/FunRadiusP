@@ -44,7 +44,8 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [content]);
 
-  if (headings.length === 0) return <p className="text-gray-500">无目录</p>;
+  if (headings.length === 0)
+    return <p className="text-text opacity-60">无目录</p>;
 
   return (
     <ul className="space-y-2">
@@ -52,7 +53,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
         <li key={heading.id} className={`pl-${(heading.level - 2) * 4}`}>
           <a
             href={`#${heading.id}`}
-            className={`block py-1 text-sm ${activeHeading === heading.id ? "text-primary font-semibold" : "text-gray-600 hover:text-primary"}`}
+            className={`block py-1 text-sm transition-colors ${activeHeading === heading.id ? "text-primary font-semibold" : "text-text opacity-75 hover:text-primary hover:opacity-100"}`}
           >
             {heading.text}
           </a>
