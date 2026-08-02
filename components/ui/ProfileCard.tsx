@@ -82,6 +82,28 @@ export default function ProfileCard() {
         >
           <FaGithub size={16} /> GitHub
         </a>
+        {/* Bangumi */}
+        <a
+          href="https://bgm.tv/user/1203969"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+            background: "#f0f4f9",
+            padding: "6px 18px",
+            borderRadius: 40,
+            color: "#F091C9",
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5.5 17.5V6.5L12 13l6.5-6.5v11" />
+          </svg>
+          Bangumi
+        </a>
         {/* Steam - 保持不变，使用 Font Awesome */}
         {/* <a
           href="https://steamcommunity.com/profiles/76561199677607305/"
