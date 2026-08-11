@@ -17,7 +17,9 @@ export default function ProfileCard() {
         padding: 12,
       }}
     >
-      <div style={{ marginBottom: 24 }}>
+      {/* 头像控制 起 */}
+      {/* 模式一：视频 */}
+      {/* <div style={{ marginBottom: 24 }}>
         <video
           src="/fln.mp4"
           autoPlay
@@ -35,7 +37,23 @@ export default function ProfileCard() {
             border: "1px solid #e9edf2",
           }}
         />
+      </div> */}
+      {/* 模式二：GIF */}
+      <div style={{ marginBottom: 24 }}>
+        <img
+          src="/gif.gif"
+          alt="profile"
+          style={{
+            width: 200,
+            height: 200,
+            borderRadius: 20,
+            objectFit: "cover",
+            boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+            border: "1px solid #e9edf2",
+          }}
+        />
       </div>
+      {/* 头像控制 末 */}
       <div
         style={{
           display: "flex",
@@ -99,7 +117,17 @@ export default function ProfileCard() {
             color: "#F091C9",
           }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M5.5 17.5V6.5L12 13l6.5-6.5v11" />
           </svg>
           Bangumi
