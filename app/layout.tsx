@@ -3,12 +3,12 @@ import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import BackToTop from "../components/ui/BackToTop";
-import Live2DWidget from "../components/widgets/Live2DWidget";
+import LazyWidgets from "../components/widgets/LazyWidgets";
 import AnchorHandler from "../components/ui/AnchorHandler";
 import CodeBlockCopy from "../components/ui/CodeBlockCopy";
-import Particles from "../components/widgets/Particles";
 import StructuredData from "../components/ui/StructuredData";
 import OpacityHandler from "../components/ui/OpacityHandler";
+import MathStyles from "../components/ui/MathStyles";
 import { ImageViewerProvider } from "../components/ui/ImageViewer";
 import { LanguageProvider } from "../lib/i18n";
 import { getRootMetadata } from "../lib/i18n/metadata";
@@ -19,13 +19,6 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
 export const metadata: Metadata = getRootMetadata();
 
 export const links = [
-  {
-    rel: "stylesheet",
-    href: "https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css",
-    integrity:
-      "sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww",
-    crossorigin: "anonymous",
-  },
   {
     rel: "alternate",
     type: "application/rss+xml",
@@ -77,13 +70,12 @@ export default function RootLayout({
   return (
     <html lang={defaultLang === "en" ? "en" : defaultLang}>
       <body>
+        <MathStyles />
         <LanguageProvider>
           <ImageViewerProvider>
             <OpacityHandler />
             <StructuredData type="website" />
-            {process.env.NEXT_PUBLIC_PARTICLES_ENABLED === "true" && (
-              <Particles />
-            )}
+            <LazyWidgets />
             <Header />
             <main
               className="container mx-auto px-4 py-8 relative z-10"
@@ -93,7 +85,6 @@ export default function RootLayout({
             </main>
             <Footer />
             <BackToTop />
-            <Live2DWidget />
             <AnchorHandler />
             <CodeBlockCopy />
           </ImageViewerProvider>

@@ -67,6 +67,38 @@ function copyContentDir(sourceDir, targetDir, options = {}) {
   return totalCopied;
 }
 
+function copyKaTeX(baseTargetDir) {
+  const katexSrc = path.join(__dirname, "..", "node_modules", "katex", "dist");
+  const katexDest = path.join(baseTargetDir, "katex");
+  if (!fs.existsSync(katexSrc)) {
+    console.log("No katex dist found, skipping KaTeX copy");
+    return 0;
+  }
+  if (!fs.existsSync(katexDest)) {
+    fs.mkdirSync(katexDest, { recursive: true });
+  }
+  fs.copyFileSync(
+    path.join(katexSrc, "katex.min.css"),
+    path.join(katexDest, "katex.min.css"),
+  );
+  const fontsSrc = path.join(katexSrc, "fonts");
+  let fontCount = 0;
+  if (fs.existsSync(fontsSrc)) {
+    const fontsDest = path.join(katexDest, "fonts");
+    if (!fs.existsSync(fontsDest)) {
+      fs.mkdirSync(fontsDest, { recursive: true });
+    }
+    for (const fontFile of fs.readdirSync(fontsSrc)) {
+      fs.copyFileSync(
+        path.join(fontsSrc, fontFile),
+        path.join(fontsDest, fontFile),
+      );
+      fontCount++;
+    }
+  }
+  return 1 + fontCount;
+}
+
 function copyAssets(isDev = false) {
   const baseTargetDir = isDev
     ? path.join(__dirname, "..", "public")
@@ -120,8 +152,17 @@ function copyAssets(isDev = false) {
   }
   console.log(`Spec total copied: ${specTotal} files`);
 
+  // Copy KaTeX styles and fonts (自托管，避免全局渲染阻塞外链)
+  const katexCopied = copyKaTeX(baseTargetDir);
+  console.log(`KaTeX copied: ${katexCopied} files`);
+
   const total =
-    postsCopied + demosCopied + docsCopied + momentsCopied + specTotal;
+    postsCopied +
+    demosCopied +
+    docsCopied +
+    momentsCopied +
+    specTotal +
+    katexCopied;
   console.log(`Total assets copied: ${total} files\n`);
 }
 

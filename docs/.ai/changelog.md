@@ -4,6 +4,39 @@
 
 ---
 
+## [2026-05-01]
+
+### 主要变更
+
+- 性能优化：KaTeX 样式按需加载 + 自托管
+  - 移除根 layout 全局外链 katex.min.css（jsDelivr，渲染阻塞）
+  - 新建 MathStyles 客户端组件：检测页面存在 .katex 元素后动态注入同源 /katex/katex.min.css
+  - copy-assets.js 构建时从 node_modules/katex/dist 复制 CSS + 字体到 katex/ 目录
+- 性能优化：Live2D 加载策略
+  - 锁定 oh-my-live2d 版本 0.19.3，弃用 @latest（改善 CDN 缓存）
+  - requestIdleCallback 空闲加载 + 3s 超时兜底
+  - 触屏设备（pointer: coarse）不加载看板娘
+  - 删除 console.log / console.warn 调试输出
+- 性能优化：动态分包
+  - 新建 LazyWidgets 客户端组件，next/dynamic + ssr: false 拆分 Live2DWidget 与 Particles
+  - 粒子动画（natural-falling-js）不再进首屏 bundle
+- 性能优化：Header 事件节流
+  - 滚动/鼠标移动处理函数改为 rAF 节流，减少高频 setState
+- 文档同步：performance.md 补充实测优化要点；修复 architecture.md 与代码的「动态导入」不一致问题
+
+### 新增文件
+
+- 组件：components/ui/MathStyles.tsx、components/widgets/LazyWidgets.tsx
+
+### 修改文件
+
+- 根布局：app/layout.tsx
+- 组件：components/widgets/Live2DWidget.tsx、components/layout/Header.tsx
+- 脚本：scripts/copy-assets.js
+- 文档：docs/.ai/changelog.md、docs/.ai/best-practices/performance.md
+
+---
+
 ## [2026-04-30]
 
 ### 主要变更

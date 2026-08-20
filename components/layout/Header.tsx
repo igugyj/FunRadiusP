@@ -93,11 +93,17 @@ export default function Header() {
       }
     };
 
+    let scrollTicking = false;
     const handleScroll = () => {
-      // 只在桌面端才隐藏导航栏
-      if (!isMobile) {
-        hideHeader();
-      }
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        scrollTicking = false;
+        // 只在桌面端才隐藏导航栏
+        if (!isMobile) {
+          hideHeader();
+        }
+      });
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -106,11 +112,17 @@ export default function Header() {
     let handleTouchMove: (e: TouchEvent) => void;
     let handleTouchStart: (e: TouchEvent) => void;
     if (isAutoHideEnabled) {
+      let moveTicking = false;
       handleMouseMove = (e: MouseEvent) => {
-        // 只在桌面端才响应鼠标移动
-        if (!isMobile && e.clientY < 100) {
-          showHeader();
-        }
+        if (moveTicking) return;
+        moveTicking = true;
+        requestAnimationFrame(() => {
+          moveTicking = false;
+          // 只在桌面端才响应鼠标移动
+          if (!isMobile && e.clientY < 100) {
+            showHeader();
+          }
+        });
       };
       handleTouchMove = (e: TouchEvent) => {
         if (e.touches[0].clientY < 150) {

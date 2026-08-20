@@ -1,4 +1,4 @@
-﻿# 性能优化最佳实践
+# 性能优化最佳实践
 
 ## 性能指标
 
@@ -199,6 +199,13 @@
 - **定期优化**: 定期进行性能优化
 - **依赖更新**: 定期更新依赖包
 - **安全检查**: 检查性能相关的安全问题
+
+## 本项目实测优化要点（2026-05-01）
+
+- **KaTeX CSS 按需加载**：根 layout 不再全局外链 katex.min.css（渲染阻塞 + 跨域）。MathStyles 组件检测 .katex 元素后注入同源 /katex/katex.min.css，样式由 copy-assets 构建时从 node_modules 自托管
+- **Live2D 懒加载**：oh-my-live2d 锁版本 0.19.3，requestIdleCallback 空闲加载，触屏设备跳过；避免每页拉 CDN 脚本
+- **动态分包**：Live2DWidget / Particles 经 next/dynamic + ssr:false 拆出首屏 bundle，粒子库 natural-falling-js 按需加载
+- **事件节流**：Header 的 scroll/mousemove 用 requestAnimationFrame 节流，避免高频 setState 引发重渲染
 
 ## 常见性能问题
 
