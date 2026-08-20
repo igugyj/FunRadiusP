@@ -4,8 +4,6 @@ import { useEffect } from "react";
 
 export default function AnchorHandler() {
   useEffect(() => {
-    console.log("AnchorHandler initialized");
-
     const handleClick = (e: MouseEvent) => {
       let target = e.target as HTMLElement;
 
@@ -23,8 +21,6 @@ export default function AnchorHandler() {
           const element = document.getElementById(id);
 
           if (element) {
-            console.log(`Scrolling to anchor: ${id}`);
-
             const headerHeight = 150;
             const elementPosition =
               element.getBoundingClientRect().top + window.scrollY;
@@ -48,8 +44,6 @@ export default function AnchorHandler() {
         const element = document.getElementById(id);
 
         if (element) {
-          console.log(`Hash changed, scrolling to: ${id}`);
-
           const headerHeight = 150;
           const elementPosition =
             element.getBoundingClientRect().top + window.scrollY;

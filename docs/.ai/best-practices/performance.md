@@ -206,6 +206,9 @@
 - **Live2D 懒加载**：oh-my-live2d 锁版本 0.19.3，requestIdleCallback 空闲加载，触屏设备跳过；避免每页拉 CDN 脚本
 - **动态分包**：Live2DWidget / Particles 经 next/dynamic + ssr:false 拆出首屏 bundle，粒子库 natural-falling-js 按需加载
 - **事件节流**：Header 的 scroll/mousemove 用 requestAnimationFrame 节流，避免高频 setState 引发重渲染
+- **翻译分包**：客户端只同步打包 zh 基线，en/es/ja/de/fr 按语言 dynamic import；lib/i18n/format.ts 无 JSON 依赖，避免拖入全量翻译
+- **Live2D 默认模型**：默认只加载 1 个模型，贴图下载量降约 2/3；其余模型靠环境变量显式配置
+- **MutationObserver 精准化**：CodeBlockCopy 只响应新增 <pre> 的变更，避免全量 DOM 扫描
 
 ## 常见性能问题
 

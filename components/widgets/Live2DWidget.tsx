@@ -86,29 +86,9 @@ export default function Live2DWidget() {
       }
 
       if (models.length === 0) {
+        // 默认只加载 1 个模型，其余通过 NEXT_PUBLIC_LIVE2D_MODELS 显式配置
         models.push({
           path: ensureAbsolutePath("/live2d/chuixue_3/chuixue_3.model3.json"),
-          position,
-          scale,
-          stageStyle: {
-            height: stageHeight,
-          },
-        });
-        // 添加默认模型
-        models.push({
-          path: ensureAbsolutePath(
-            "/live2d/dujiaoshou_4/dujiaoshou_4.model3.json",
-          ),
-          position,
-          scale,
-          stageStyle: {
-            height: stageHeight,
-          },
-        });
-        models.push({
-          path: ensureAbsolutePath(
-            "/live2d/ice-girl/ice-girl-model/IceGirl.model3.json",
-          ),
           position,
           scale,
           stageStyle: {

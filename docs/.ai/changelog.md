@@ -37,6 +37,30 @@
 
 ---
 
+## [2026-05-01]
+
+### 主要变更
+
+- 性能优化：翻译文件按语言分包
+  - 新增 lib/i18n/format.ts（纯函数）与 lib/i18n/loader.ts（按需加载器）
+  - context.tsx 不再静态引入全部 6 语言 JSON；zh 为同步基线，其余语言 dynamic import 分包
+  - utils.ts 保留全量 translations 供服务端 metadata 构建使用
+- 优化：Live2D 默认模型 3 个减为 1 个（chuixue_3），其余经 NEXT_PUBLIC_LIVE2D_MODELS 显式配置，减少默认贴图下载量
+- 清理：移除 AnchorHandler 生产环境 console.log（3 处）
+- 优化：CodeBlockCopy MutationObserver 只响应新增 <pre> 的变更，避免每次 DOM 变更全量查询
+
+### 新增文件
+
+- lib/i18n/format.ts、lib/i18n/loader.ts
+
+### 修改文件
+
+- lib/i18n/utils.ts、lib/i18n/context.tsx
+- 组件：components/widgets/Live2DWidget.tsx、components/ui/AnchorHandler.tsx、components/ui/CodeBlockCopy.tsx
+- 文档：docs/.ai/changelog.md、docs/.ai/best-practices/performance.md、docs/.ai/modules/i18n.md
+
+---
+
 ## [2026-04-30]
 
 ### 主要变更

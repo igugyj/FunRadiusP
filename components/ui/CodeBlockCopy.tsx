@@ -47,8 +47,15 @@ export default function CodeBlockCopy() {
 
     addCopyButtons();
 
-    const observer = new MutationObserver(() => {
-      addCopyButtons();
+    const observer = new MutationObserver((mutations) => {
+      const hasNewPre = mutations.some((m) =>
+        [...m.addedNodes].some(
+          (n) =>
+            n instanceof Element &&
+            (n.matches("pre") || n.querySelector("pre")),
+        ),
+      );
+      if (hasNewPre) addCopyButtons();
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
