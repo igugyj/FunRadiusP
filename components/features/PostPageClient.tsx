@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import TableOfContents from "@/components/ui/TableOfContents";
@@ -25,6 +26,8 @@ interface PostPageClientProps {
   next: Post | null;
   htmlContent: string;
   isAutoHideEnabled: boolean;
+  slug: string;
+  shortCode: string | null;
 }
 
 export default function PostPageClient({
@@ -33,9 +36,21 @@ export default function PostPageClient({
   next,
   htmlContent,
   isAutoHideEnabled,
+  slug,
+  shortCode,
 }: PostPageClientProps) {
   const { t } = useLanguage();
+  const [copiedPath, setCopiedPath] = useState<string | null>(null);
   const _year = post.published ? post.published.match(/\d+/)?.at(0) : "";
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, "");
+
+  const copyLink = async (path: string) => {
+    const url = `${window.location.origin}${path}`;
+    await navigator.clipboard.writeText(url);
+    setCopiedPath(path);
+    setTimeout(() => setCopiedPath(null), 2000);
+  };
+
   return (
     <>
       <div
@@ -88,6 +103,66 @@ export default function PostPageClient({
                   ))}
                 </div>
               )}
+            </div>
+
+            {/* 分享链接 */}
+            {shortCode && (
+              <div
+                className="flex items-center justify-between gap-2 text-sm mb-3 px-3 py-2 rounded-lg"
+                style={{ backgroundColor: "var(--secondary)", color: "var(--text)" }}
+              >
+                <a
+                  href={`/p/${shortCode}/`}
+                  className="hover:underline font-mono truncate"
+                  style={{ color: "var(--primary)" }}
+                >
+                  {siteUrl}/p/{shortCode}/
+                </a>
+                <button
+                  onClick={() => copyLink(`/p/${shortCode}/`)}
+                  className="p-1 rounded hover:opacity-80 transition-opacity flex-shrink-0"
+                  title={copiedPath === `/p/${shortCode}/` ? t("common.copied") : t("common.copy")}
+                >
+                  {copiedPath === `/p/${shortCode}/` ? (
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" strokeWidth="2" />
+                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" strokeWidth="2" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            )}
+            <div
+              className="flex items-center justify-between gap-2 text-sm mb-6 px-3 py-2 rounded-lg"
+              style={{ backgroundColor: "var(--secondary)", color: "var(--text)" }}
+            >
+              <a
+                href={`/posts/${slug}/`}
+                className="hover:underline font-mono truncate"
+                style={{ color: "var(--primary)" }}
+              >
+                {siteUrl}/posts/{slug}/
+              </a>
+              <button
+                onClick={() => copyLink(`/posts/${slug}/`)}
+                className="p-1 rounded hover:opacity-80 transition-opacity flex-shrink-0"
+                title={copiedPath === `/posts/${slug}/` ? t("common.copied") : t("common.copy")}
+              >
+                {copiedPath === `/posts/${slug}/` ? (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" strokeWidth="2" />
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" strokeWidth="2" />
+                  </svg>
+                )}
+              </button>
             </div>
 
             {/* 文章封面 */}

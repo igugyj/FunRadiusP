@@ -8,6 +8,21 @@
 
 ### 主要变更
 
+- 文章详情页添加一键复制链接功能
+  - 在元信息栏（日期/分类/标签）与封面之间新增分享链接区
+  - 两个独立卡片：短链（`/p/{shortCode}/`）和本目录链接（`/posts/{slug}/`）
+  - 每行右侧带复制按钮，点击复制完整 URL（含域名），2 秒后恢复图标
+  - 短码从 `.redirects/auto-redirect-map.json` 反查读取，无重复计算
+  - `app/posts/[slug]/page.tsx`（server component）build 时读 map，传 `slug`+`shortCode` 给 PostPageClient
+  - 复用已有翻译键 `common.copied` / `common.copy`，无新增 i18n 键
+
+### 修改文件
+
+- `app/posts/[slug]/page.tsx`：引入 fs/path，读 redirect map 反查短码，传新 props
+- `components/features/PostPageClient.tsx`：新增 slug/shortCode props、useState + copyLink、分享链接区 UI
+
+---
+
 - 静态重定向系统（短链接）
   - 新增 `scripts/generate-html-redirect.js`：核心模块，导出 `createRedirectPage(shortCode, targetUrl, outputDir)`，生成 `<meta refresh>` 静态跳转页面
   - 新增 `scripts/build-auto-redirects.js`：扫描 `content/posts/` 子目录，基于完整路径 SHA-256 + Base62 生成 16 位短码，输出 `/p/{短码}/index.html`
