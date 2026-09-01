@@ -133,8 +133,15 @@
 | `content/docs/`       | 文档内容      |
 | `content/demos/`      | Demo 内容      |
 | `content/spec/`       | 特殊页面内容  |
+| `scripts/build-all-redirects.js` | 重定向构建整合脚本 |
+| `scripts/generate-html-redirect.js` | 重定向页面生成核心模块 |
+| `scripts/build-auto-redirects.js` | 自动重定向构建脚本 |
+| `scripts/build-custom-redirects.js` | 自定义重定向构建脚本 |
 | `scripts/copy-post-images.js` | 生产环境复制图片脚本 |
 | `scripts/copy-post-images-dev.js` | 开发环境复制图片脚本 |
 | `scripts/copy-demos.js` | 生产环境复制 demo 脚本 |
 | `scripts/copy-demos-dev.js` | 开发环境复制 demo 脚本 |
 | `scripts/serve-static.js` | 静态网站预览服务器 |
+| `redirect-config.json` | 重定向系统配置 |
+| `redirect-custom.json` | 自定义重定向映射 |
+| `.redirects/` | 重定向映射表（已 gitignore） |

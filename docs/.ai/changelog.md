@@ -4,6 +4,35 @@
 
 ---
 
+## [2026-09-01]
+
+### 主要变更
+
+- 静态重定向系统（短链接）
+  - 新增 `scripts/generate-html-redirect.js`：核心模块，导出 `createRedirectPage(shortCode, targetUrl, outputDir)`，生成 `<meta refresh>` 静态跳转页面
+  - 新增 `scripts/build-auto-redirects.js`：扫描 `content/posts/` 子目录，基于完整路径 SHA-256 + Base62 生成 16 位短码，输出 `/p/{短码}/index.html`
+  - 新增 `scripts/build-custom-redirects.js`：读取 `redirect-custom.json`，生成自定义重定向页面，支持多层路径（如 `dev/gitee`），输出在 `./public/{shortCode}/`
+  - 新增 `scripts/build-all-redirects.js`：整合脚本，依次调用自动和自定义构建，检测冲突并合并映射表
+  - 新增配置文件：`redirect-config.json`（短码长度、排除目录、路径前缀等）、`redirect-custom.json`（自定义映射）
+  - 映射表存储在 `.redirects/` 隐藏目录，不对外暴露
+  - 构建时自动检测短码碰撞，冲突则报错停止
+  - `.gitignore` 自动更新，管理自定义路径忽略规则
+- 构建流程集成
+  - `prebuild` 和 `predev` 脚本中加入 `node scripts/build-all-redirects.js`，每次构建自动生成所有重定向页面
+
+### 新增文件
+
+- 脚本：scripts/generate-html-redirect.js、scripts/build-auto-redirects.js、scripts/build-custom-redirects.js、scripts/build-all-redirects.js
+- 配置：redirect-config.json、redirect-custom.json
+- 映射：.redirects/auto-redirect-map.json、.redirects/custom-redirect-map.json、.redirects/redirect-map.json
+
+### 修改文件
+
+- 配置文件：package.json（prebuild/predev 脚本）
+- 文档：docs/.ai/changelog.md、docs/.ai/core/architecture.md、docs/.ai/core/quick-start.md、docs/.ai/config/nextjs.md、docs/.ai/best-practices/development.md、docs/.ai/best-practices/deployment.md、docs/.ai/index.md
+
+---
+
 ## [2026-05-01]
 
 ### 主要变更

@@ -1,4 +1,4 @@
-﻿# 部署最佳实践
+# 部署最佳实践
 
 ## 部署环境
 
@@ -24,12 +24,20 @@
 ### 1. 构建项目
 
 ```bash
-# 构建生产版本
+# 构建生产版本（自动运行 prebuild 生成重定向页面）
 npm run build
 
 # 检查构建输出
-ls -la .next/
+ls -la output/
 ```
+
+#### 重定向系统
+
+构建时 `prebuild` 自动执行 `scripts/build-all-redirects.js`，生成：
+- **自动重定向**：`/p/{短码}/index.html` → `/posts/{文章文件夹}/`
+- **自定义重定向**：`/{自定义短码}/index.html` → 用户指定目标
+
+映射表存储在 `.redirects/` 目录（已 gitignore），不对外暴露。如需自定义映射，编辑根目录 `redirect-custom.json`。
 
 ### 2. 部署到 Vercel
 
@@ -40,7 +48,7 @@ ls -la .next/
 3. **配置项目**：
    - 框架预设：Next.js
    - 构建命令：`npm run build`
-   - 输出目录：`.next`
+   - 输出目录：`output`
    - 环境变量：根据需要配置
 4. **部署**：点击 "Deploy" 按钮开始部署
 5. **访问**：部署完成后，Vercel 会提供一个域名访问网站
@@ -60,7 +68,7 @@ ls -la .next/
 2. **导入项目**：从 GitHub、GitLab 或 Bitbucket 导入项目
 3. **配置项目**：
    - 构建命令：`npm run build`
-   - 发布目录：`.next`
+   - 发布目录：`output`
    - 环境变量：根据需要配置
 4. **部署**：点击 "Deploy site" 按钮开始部署
 5. **访问**：部署完成后，Netlify 会提供一个域名访问网站
@@ -81,8 +89,8 @@ ls -la .next/
 3. **导入项目**：从 GitHub 或 GitLab 导入项目
 4. **配置项目**：
    - 框架预设：Next.js
-   - 构建命令：`npm run build`
-   - 输出目录：`.next`
+   - 构建命令：`npm run deploy`
+   - 输出目录：`output`
    - 环境变量：根据需要配置
 5. **部署**：点击 "Save and Deploy" 按钮开始部署
 6. **访问**：部署完成后，Cloudflare Pages 会提供一个域名访问网站

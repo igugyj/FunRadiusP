@@ -1,4 +1,4 @@
-﻿# FunRadiusP 快速开始指南
+# FunRadiusP 快速开始指南
 
 ## 环境要求
 
@@ -259,6 +259,9 @@ npm run build
 ```bash
 # 清除 Next.js 缓存
 rm -rf .next
+
+# 清除重定向缓存
+rm -rf .redirects
 
 # 清除 npm 缓存
 npm cache clean --force

@@ -3,8 +3,8 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/generate-build-env.js && node scripts/generate-search-index.js",
-    "predev": "node scripts/generate-build-env.js && node scripts/generate-search-index.js && node scripts/copy-assets.js --dev && node scripts/generate-rss-dev.js",
+    "prebuild": "node scripts/build-all-redirects.js && node scripts/generate-build-env.js && node scripts/generate-search-index.js",
+    "predev": "node scripts/build-all-redirects.js && node scripts/generate-build-env.js && node scripts/generate-search-index.js && node scripts/copy-assets.js --dev && node scripts/generate-rss-dev.js",
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/copy-assets.js && node scripts/generate-rss.js && node scripts/generate-sitemap.js && node scripts/generate-verification.js",

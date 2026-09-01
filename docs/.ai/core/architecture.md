@@ -1,4 +1,4 @@
-﻿# FunRadiusP 架构文档
+# FunRadiusP 架构文档
 
 ## 架构概览
 
@@ -155,7 +155,31 @@ app/posts/[slug]/page.tsx
 渲染到页面
 ```
 
-### 2. 分类和标签数据流
+### 2. 静态重定向系统
+
+```
+content/posts/[id]/index.md
+    ↓
+scripts/build-auto-redirects.js (SHA-256 → Base62 短码)
+    ↓
+scripts/generate-html-redirect.js (生成 <meta refresh> 页面)
+    ↓
+output/p/{短码}/index.html → /posts/{文章文件夹}/
+
+redirect-custom.json (自定义映射)
+    ↓
+scripts/build-custom-redirects.js
+    ↓
+scripts/generate-html-redirect.js
+    ↓
+public/{短码}/index.html → 用户指定目标
+
+scripts/build-all-redirects.js (整合 + 冲突检测)
+    ↓
+.redirects/redirect-map.json (合并映射表)
+```
+
+### 3. 分类和标签数据流
 
 ```
 content/posts/[id]/index.md (包含 category 和 tags)
@@ -215,6 +239,8 @@ t() 函数替换文本
 | 动态路由 | `/categories/[slug]` | 动态参数 + 静态生成 |
 | 动态路由 | `/tags/[slug]` | 动态参数 + 静态生成 |
 | 带查询参数 | `/articles/?page=1` | 服务器组件 + 异步 searchParams |
+| 短链接重定向 | `/p/{短码}` | 构建时生成 `<meta refresh>` 静态页面 |
+| 自定义重定向 | `/{自定义短码}` | 构建时生成 `<meta refresh>` 静态页面 |
 
 ### 静态路由生成
 
@@ -319,6 +345,8 @@ interface LanguageContextType {
 - 静态生成
 - 多语言支持
 - 新增随笔、文档、Demo 模块
+- 静态重定向系统（短链接 + 自定义映射）
+- 构建流水线：prebuild → build → postbuild
 
 ### 3. 未来规划
 - 支持更多 Markdown 扩展

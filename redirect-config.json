@@ -1,0 +1,14 @@
+{
+    "postsDir": "content/posts",
+    "articleFile": "index.md",
+    "excludeDirs": [
+        ".obsidian",
+        ".git",
+        ".vscode",
+        "node_modules",
+        "0example"
+    ],
+    "shortCodeLength": 8,
+    "customRedirectsFile": "redirect-custom.json",
+    "articleUrlPrefix": "/posts"
+}

@@ -1,4 +1,4 @@
-﻿# Next.js 配置文档
+# Next.js 配置文档
 
 ## 配置概述
 
@@ -75,23 +75,35 @@ export async function generateStaticParams() {
 ### 构建命令
 
 ```bash
-# 构建生产版本
+# 构建生产版本（自动运行 prebuild 生成重定向页面）
 npm run build
 
 # 启动生产服务器
 npm start
 ```
 
+### 构建流程
+
+| 阶段 | 命令 | 说明 |
+|------|------|------|
+| prebuild | `node scripts/build-all-redirects.js` | 生成静态重定向页面 |
+| prebuild | `node scripts/generate-build-env.js` | 生成构建环境变量 |
+| prebuild | `node scripts/generate-search-index.js` | 生成搜索索引 |
+| build | `next build` | Next.js 构建 |
+| postbuild | `node scripts/copy-assets.js` | 复制静态资源 |
+| postbuild | `node scripts/generate-rss.js` | 生成 RSS feed |
+| postbuild | `node scripts/generate-sitemap.js` | 生成 sitemap |
+| postbuild | `node scripts/generate-verification.js` | 生成验证文件 |
+
 ### 构建输出
 
-构建完成后，Next.js 会生成以下文件：
+构建完成后，项目会生成以下文件：
 
 | 目录/文件 | 说明 |
 |----------|------|
-| `.next/` | 构建输出目录 |
-| `.next/static/` | 静态资源 |
-| `.next/server/` | 服务器代码 |
-| `.next/export/` | 静态导出文件（如果启用） |
+| `.next/` | Next.js 内部构建缓存 |
+| `output/` | 静态导出目录（部署用） |
+| `.redirects/` | 重定向映射表（已 gitignore） |
 
 ## 环境变量
 
