@@ -27,7 +27,7 @@ export default function Home() {
     latest = {
       type: "moment",
       title: latestMoment.content.substring(0, 80) + (latestMoment.content.length > 80 ? "..." : ""),
-      href: `/moments/detail/${latestMoment.id}`,
+      href: `/moments/${latestMoment.id}`,
       date: latestMoment.time,
     };
   }

@@ -196,7 +196,7 @@ export function getMomentDetailMetadata(slug: string, momentData: {
   const photoAltOpenGraph = formatTranslation("momentsPage.photoAltOpenGraph");
   
   return {
-    baseMetadata: buildMetadata(`/moments/detail/${slug}`, title, description, "article"),
+    baseMetadata: buildMetadata(`/moments/${slug}`, title, description, "article"),
     photoAlt: formatTranslation("momentsPage.photoAlt", { index: 1 }),
     photoAltOpenGraph,
     authorName,
@@ -207,7 +207,7 @@ export function getMomentDetailMetadata(slug: string, momentData: {
 
 export function getMomentNotFoundMetadata(slug: string): Metadata {
   const title = formatTranslation("momentsPage.notFound");
-  return buildMetadata(`/moments/detail/${slug}`, title, "");
+  return buildMetadata(`/moments/${slug}`, title, "");
 }
 
 export function getPostNotFoundMetadata(slug: string): Metadata {

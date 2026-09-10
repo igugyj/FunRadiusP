@@ -73,7 +73,7 @@ export default function MomentsClient({
 
           return (
             <div key={moment.id} className="card">
-              <Link href={`/moments/detail/${moment.id}`} className="block">
+              <Link href={`/moments/${moment.id}`} className="block">
                 <div
                   className="flex items-center text-sm mb-4"
                   style={{ color: "var(--text)", opacity: 0.7 }}

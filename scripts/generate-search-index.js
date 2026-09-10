@@ -79,7 +79,7 @@ function getMoments() {
           t: "m",
           a: (data.time || id).trim(),
           s: snippet,
-          u: "/moments/detail/" + id + "/",
+          u: "/moments/" + id + "/",
         };
       } catch { return null; }
     })

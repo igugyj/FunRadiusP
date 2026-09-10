@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getMomentById, getMoments } from "../../../../lib/moments";
-import { formatMomentTime } from "../../../../lib/utils";
-import { markdownToHtml } from "../../../../lib/markdown";
-import StructuredData from "../../../../components/ui/StructuredData";
-import MomentsDetailPageClient from "../../../../components/features/MomentsDetailPageClient";
-import { getMomentDetailMetadata, getMomentNotFoundMetadata, formatTranslation, buildMetadata } from "../../../../lib/i18n/metadata";
+import { getMomentById, getMoments } from "../../../lib/moments";
+import { formatMomentTime } from "../../../lib/utils";
+import { markdownToHtml } from "../../../lib/markdown";
+import StructuredData from "../../../components/ui/StructuredData";
+import MomentsDetailPageClient from "../../../components/features/MomentsDetailPageClient";
+import { getMomentDetailMetadata, getMomentNotFoundMetadata, formatTranslation, buildMetadata } from "../../../lib/i18n/metadata";
 
 interface MomentsPageProps {
   params: Promise<{ slug: string }>;
@@ -38,7 +38,7 @@ export async function generateMetadata({
     }
   }
 
-  const baseMetadata = buildMetadata(`/moments/detail/${slug}`, title, description, "article");
+  const baseMetadata = buildMetadata(`/moments/${slug}`, title, description, "article");
   return {
     ...baseMetadata,
     openGraph: {
@@ -87,7 +87,7 @@ export default async function MomentsPage({ params }: MomentsPageProps) {
         items: [
           { name: "Home", url: siteUrl },
           { name: "Moments", url: `${siteUrl}/moments` },
-          { name: formattedMoment.time, url: `${siteUrl}/moments/detail/${slug}` },
+          { name: formattedMoment.time, url: `${siteUrl}/moments/${slug}` },
         ],
       }} />
       <StructuredData type="article" data={moment} />
