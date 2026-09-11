@@ -18,6 +18,8 @@ interface Post {
   image?: string;
   content: string;
   player?: any;
+  author: string | undefined;
+  licence: string | undefined;
 }
 
 interface PostPageClientProps {
@@ -182,8 +184,8 @@ export default function PostPageClient({
                 className="text-sm"
                 style={{ color: "var(--text)", opacity: 0.7 }}
               >
-                © {_year} {process.env.NEXT_PUBLIC_AUTHOR_NAME}. CC BY-NC-SA
-                4.0.
+                © {_year} {post.author || process.env.NEXT_PUBLIC_AUTHOR_NAME}.{" "}
+                {post.licence || "CC BY-NC-SA 4.0"}.
               </p>
             </div>
 

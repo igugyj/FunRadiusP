@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
+// 永远不要复制进 public/output 的条目
+const SKIP_ENTRIES = new Set([".git", ".gitignore", ".DS_Store"]);
+
 function copyDirectory(src, dest, options = {}) {
   if (!fs.existsSync(dest)) {
     fs.mkdirSync(dest, { recursive: true });
@@ -10,6 +13,11 @@ function copyDirectory(src, dest, options = {}) {
   let count = 0;
 
   entries.forEach((entry) => {
+    // Skip VCS / OS junk
+    if (SKIP_ENTRIES.has(entry)) {
+      return;
+    }
+
     const srcPath = path.join(src, entry);
     let destPath = path.join(dest, entry);
 
@@ -56,6 +64,11 @@ function copyContentDir(sourceDir, targetDir, options = {}) {
   let totalCopied = 0;
 
   dirs.forEach((dirId) => {
+    // Skip VCS / OS junk at the top level too
+    if (SKIP_ENTRIES.has(dirId)) {
+      return;
+    }
+
     const srcDir = path.join(sourceDir, dirId);
     const destDir = path.join(targetDir, dirId);
 

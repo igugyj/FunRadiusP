@@ -4,6 +4,31 @@
 
 ---
 
+## [2026-09-11]
+
+### 主要变更
+
+- **文章文件夹批量重命名**（62 个）
+  - 统一为 `{category}-{keyword}` 格式，全小写+连字符
+  - 分类前缀：`note-`(28), `daily-`(8), `blog-`(7), `share-`(4), `python-`(4), `cppqt-`(3), `linux-`(3), `works-`(1)
+  - `pin` 保留不变，删除空目录 `RecommendationOfSpamBlocker`
+  - 同步更新 4 处跨文章内链、15 处硬编码图片路径（`HowToResetAndroidAPP`）
+  - 重命名在 `content/posts` 子模块内执行
+
+- **新增 `author`/`licence` frontmatter 字段**
+  - `lib/posts.ts`：Post 接口新增 `author: string | undefined`、`licence: string | undefined`
+  - `components/features/PostPageClient.tsx`：版权行从硬编码改为 `post.author || env` + `post.licence || "CC BY-NC-SA 4.0"`
+  - 用法：frontmatter 不写则用默认值，写了则显示自定义内容
+  - TypeScript 修复：`author?` 改为 `author: string | undefined` 以匹配 filter 类型谓词
+
+### 修改文件
+
+- `lib/posts.ts`：Post 接口 + 两处解析
+- `components/features/PostPageClient.tsx`：Post 接口 + 版权行
+- `content/posts/*/index.md`：62 个文件夹重命名 + 内链/图片路径更新
+
+---
+
 ## [2026-09-01]
 
 ### 主要变更

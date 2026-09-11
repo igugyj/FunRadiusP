@@ -1,4 +1,4 @@
-﻿# 文章系统模块
+# 文章系统模块
 
 ## 模块概述
 
@@ -45,6 +45,8 @@ description: 文章描述  # 文章摘要
 category: technology   # 分类（英文）
 tags: [Next.js, React, TypeScript]  # 标签（英文）
 draft: false           # 是否为草稿
+author: 小明           # 作者（可选，默认使用 NEXT_PUBLIC_AUTHOR_NAME）
+licence: MIT           # 许可证（可选，默认 CC BY-NC-SA 4.0）
 player:                # 音乐播放器配置（可选）
   source: "netease"   # 音源类型："netease" 或 "local"
   link: "2085549628" # 网易云歌曲ID、完整URL或本地文件路径
@@ -169,6 +171,8 @@ interface Post {
   draft: boolean;      // 是否为草稿
   player: any;         // 音乐播放器配置
   image: string | undefined; // 文章封面图片
+  author: string | undefined; // 作者（可选）
+  licence: string | undefined; // 许可证（可选）
 }
 ```
 

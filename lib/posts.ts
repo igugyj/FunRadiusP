@@ -14,6 +14,8 @@ export interface Post {
   draft: boolean;
   image: string | undefined;
   player: any;
+  author: string | undefined;
+  licence: string | undefined;
   content: string;
 }
 
@@ -88,15 +90,17 @@ export function getPosts(): Post[] {
 
         return {
           id: filename,
-          title: data.title || '',
+          title: data.title || "",
           published: data.published || new Date().toISOString(),
-          description: data.description || '',
-          category: data.category || '',
+          description: data.description || "",
+          category: data.category || "",
           tags: data.tags || [],
           draft: data.draft || false,
           image: processImagePath(data.image, filename),
           player: data.player,
-          content: content || '',
+          author: data.author as string | undefined,
+          licence: data.licence as string | undefined,
+          content: content || "",
         };
       } catch (error) {
         console.error(`Error processing post ${filename}:`, error);
@@ -122,15 +126,17 @@ export function getPostById(id: string): Post | null {
 
     return {
       id,
-      title: data.title || '',
+      title: data.title || "",
       published: data.published || new Date().toISOString(),
-      description: data.description || '',
-      category: data.category || '',
+      description: data.description || "",
+      category: data.category || "",
       tags: data.tags || [],
       draft: data.draft || false,
       image: processImagePath(data.image, id),
       player: data.player,
-      content: content || '',
+      author: data.author as string | undefined,
+      licence: data.licence as string | undefined,
+      content: content || "",
     };
   } catch (error) {
     console.error(`Error processing post ${id}:`, error);

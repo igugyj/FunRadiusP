@@ -1,4 +1,4 @@
-﻿# 路径规范文档
+# 路径规范文档
 
 ## 概述
 
@@ -154,6 +154,15 @@ export async function generateStaticParams() {
 - 使用小写字母
 - 使用连字符分隔多个单词
 - 示例：`react`, `nextjs`, `typescript`, `web-development`
+
+### 文章文件夹命名规范
+- 格式：`{category}-{keyword1}-{keyword2}`
+- 全小写 + 连字符分隔
+- 前缀为分类名（`note-`, `daily-`, `blog-`, `share-`, `python-`, `cppqt-`, `linux-`, `works-`）
+- 示例：`note-rime-config`, `daily-github520`, `blog-fuwari-cf-build`
+- `pin` 文件夹除外（特殊用途）
+- 跨文章内链使用新文件夹名：`[链接文字](../new-folder-name/)`
+- 文章内硬编码图片路径需同步更新：`/posts/new-folder-name/assets/...`
 
 ## 迁移指南
 
