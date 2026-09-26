@@ -133,6 +133,11 @@ export const infrequentSkillsLogos: LogoItem[] = [
     href: "https://kernel.org",
   },
   {
+    src: "https://img.shields.io/badge/Ren'Py-FF7F7F?style=flat-square&logo=renpy&logoColor=white",
+    alt: "Ren'Py",
+    href: "https://www.renpy.org",
+  },
+  {
     src: "https://img.shields.io/badge/AutoHotkey-334455?style=flat-square&logo=autohotkey&logoColor=white",
     alt: "AutoHotkey",
     href: "https://autohotkey.com",
