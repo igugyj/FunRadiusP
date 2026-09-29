@@ -5,7 +5,7 @@ FunRadiusP 基于以下开源项目构建。感谢所有贡献者！
 ## 框架与语言
 
 | 项目 | 许可证 | 用途 |
-|------|--------|------|
+| ------ | -------- | ------ |
 | [Next.js](https://nextjs.org/) | MIT | React 框架，App Router + 静态导出 |
 | [React](https://react.dev/) + [React DOM](https://react.dev/) | MIT | UI 构建 |
 | [TypeScript](https://www.typescriptlang.org/) | Apache-2.0 | 类型安全 |
@@ -17,7 +17,7 @@ FunRadiusP 基于以下开源项目构建。感谢所有贡献者！
 ## Markdown 处理管线
 
 | 项目 | 许可证 | 用途 |
-|------|--------|------|
+| ------ | -------- | ------ |
 | [unified](https://unifiedjs.com/) | MIT | 内容处理框架 |
 | [remark-parse](https://github.com/remarkjs/remark) | MIT | Markdown 解析 |
 | [remark-rehype](https://github.com/remarkjs/remark-rehype) | MIT | Markdown → HTML |
@@ -34,7 +34,7 @@ FunRadiusP 基于以下开源项目构建。感谢所有贡献者！
 ## 工具与库
 
 | 项目 | 许可证 | 用途 |
-|------|--------|------|
+| ------ | -------- | ------ |
 | [dotenv](https://github.com/motdotla/dotenv) | BSD-2-Clause | 环境变量加载 |
 | [react-icons](https://github.com/react-icons/react-icons) | MIT | 图标库 |
 | [rss](https://github.com/dylang/node-rss) | MIT | RSS 生成 |
@@ -55,6 +55,7 @@ FunRadiusP 基于以下开源项目构建。感谢所有贡献者！
 | 项目 | 许可证 | 用途 |
 |------|--------|------|
 | [MapleMono](https://github.com/subframe7536/Maple-font) | SIL OFL 1.1 | 项目字体 |
+| [Comic Mono](https://github.com/dtinth/comic-mono-font) | MIT | 项目字体 |
 
 ---
 
