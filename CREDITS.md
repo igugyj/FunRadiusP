@@ -54,8 +54,8 @@ FunRadiusP 基于以下开源项目构建。感谢所有贡献者！
 
 | 项目 | 许可证 | 用途 |
 |------|--------|------|
+| [Xiaolai Mono](https://github.com/lxgw/kose-font) | OFL-1.1 | 项目字体 |
 | [MapleMono](https://github.com/subframe7536/Maple-font) | SIL OFL 1.1 | 项目字体 |
-| [Comic Mono](https://github.com/dtinth/comic-mono-font) | MIT | 项目字体 |
 
 ---
 

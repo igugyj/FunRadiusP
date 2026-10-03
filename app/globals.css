@@ -36,19 +36,13 @@
 }
 /* ComicMono 字体配置 */
 @font-face {
-  font-family: "Comic Mono";
-  src: url("/fonts/ComicMono.ttf") format("truetype");
+  font-family: "Xiaolai Mono";
+  src: url("/fonts/XiaolaiMono-Regular.ttf") format("truetype");
   font-weight: 400; /* 常规体 */
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Comic Mono";
-  src: url("/fonts/ComicMono-Bold.ttf") format("truetype");
-  font-weight: 700; /* 常规体 */
-  font-style: normal;
-  font-display: swap;
-}
+
 :root {
   --primary: #ff69b4;
   --secondary: #ffe0f0;
@@ -98,7 +92,7 @@ header {
   );
   backdrop-filter: blur(12px);
   font-family:
-    "Comic Mono",
+    "Xiaolai Mono",
     "MapleMono",
     -apple-system;
   font-weight: 700;
@@ -126,7 +120,7 @@ body {
   background-color: var(--background);
   color: var(--text);
   font-family:
-    "Comic Mono",
+    "Xiaolai Mono",
     "MapleMono",
     -apple-system;
   margin: 0;
@@ -1060,7 +1054,7 @@ h6 {
   font-weight: 700;
   padding: 0.125rem 0;
   border-radius: 0.25rem;
-  font-family: "Comic Mono", "MapleMono", monospace;
+  font-family: "Xiaolai Mono", "MapleMono", monospace;
   letter-spacing: 0.05em;
 }
 
