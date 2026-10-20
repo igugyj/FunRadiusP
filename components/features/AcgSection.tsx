@@ -24,6 +24,18 @@ export default function AcgSection() {
             }}
           />
         </a>
+
+        <p
+          style={{
+            marginTop: 8,
+            marginBottom: 0,
+            fontSize: 12,
+            lineHeight: 1.6,
+            color: "#9ca3af",
+          }}
+        >
+          Bangumi 目前在国内无法直接访问，若内容未加载，请自行准备网络环境。
+        </p>
       </div>
     </details>
   );

@@ -1,6 +1,6 @@
 "use client";
 // components/ProfileCard.tsx
-import { FaGithub, FaSteam } from "react-icons/fa";
+import { FaGithub, FaSteam, FaFirefox } from "react-icons/fa";
 // 从 react-icons/si (Simple Icons) 导入品牌图标
 import { SiBilibili, SiGitee } from "react-icons/si";
 import { HiSquares2X2 } from "react-icons/hi2";
@@ -99,6 +99,51 @@ export default function ProfileCard() {
           }}
         >
           <FaGithub size={16} /> GitHub
+        </a>
+        {/* Firefox Add-ons */}
+        <a
+          href="https://addons.mozilla.org/zh-CN/firefox/user/19971628/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+            background: "#f0f4f9",
+            padding: "6px 18px",
+            borderRadius: 40,
+            color: "#FF7139",
+          }}
+        >
+          <FaFirefox size={16} /> Firefox
+        </a>
+        {/* GreasyFork */}
+        <a
+          href="https://greasyfork.org/zh-CN/users/1617386-igugyj"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+            background: "#f0f4f9",
+            padding: "6px 18px",
+            borderRadius: 40,
+            color: "#670000",
+          }}
+        >
+          <img
+            src="https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png"
+            alt="GreasyFork"
+            width={16}
+            height={16}
+            style={{ display: "block", flexShrink: 0 }}
+          />
+          GreasyFork
         </a>
         {/* Bangumi */}
         <a
