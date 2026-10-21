@@ -122,10 +122,17 @@
 | `lib/docs.ts`        | 文档数据处理  |
 | `lib/demos.ts`       | Demo 数据处理 |
 | `lib/markdown.ts`    | Markdown 处理 |
+| `lib/reading.ts`     | 文章字数与阅读时间计算（构建期） |
+| `lib/umami.ts`       | Umami 浏览量请求入口（凭据 / 通道 / 代理） |
 | `lib/i18n/context.tsx` | 国际化上下文  |
 | `next.config.js`     | Next.js 配置  |
 | `tailwind.config.js` | Tailwind 配置 |
 | `components/layout/Header.tsx` | 导航栏组件 |
+| `components/layout/Footer.tsx` | 页脚组件（含全站总浏览量） |
+| `components/features/PostStats.tsx` | 文章统计徽章行（字数 / 时间 / 浏览量） |
+| `components/umami/useUmamiViews.ts` | 浏览量数据 hook（未配置 / 失败返回 null 即隐藏） |
+| `components/umami/PageViews.tsx` | 文章页浏览量徽章 |
+| `components/umami/TotalViews.tsx` | 页脚全站总浏览量 |
 | `components/widgets/Live2DWidget.tsx` | Live2D 看板娘组件 |
 | `components/ui/OpacityHandler.tsx` | 组件透明度假理器 |
 | `content/posts/`      | 文章内容      |
@@ -142,6 +149,7 @@
 | `scripts/copy-demos.js` | 生产环境复制 demo 脚本 |
 | `scripts/copy-demos-dev.js` | 开发环境复制 demo 脚本 |
 | `scripts/serve-static.js` | 静态网站预览服务器 |
+| `scripts/umami/worker.js` | Cloudflare Worker：Umami 查询代理 + 上报转发（部署后填 `NEXT_PUBLIC_UMAMI_PROXY_URL`，含 Origin 白名单与本地示例数据模式） |
 | `redirect-config.json` | 重定向系统配置 |
 | `redirect-custom.json` | 自定义重定向映射 |
 | `.redirects/` | 重定向映射表（已 gitignore） |

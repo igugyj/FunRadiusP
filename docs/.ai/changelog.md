@@ -4,6 +4,43 @@
 
 ---
 
+## [2026-10-21]
+
+### 主要变更
+
+- **文章统计徽章与页脚总浏览量（Umami）**
+  - 新增 `lib/reading.ts`：构建期计算字数与阅读时间（剥离代码块/公式/HTML/markdown 标记，CJK 逐字、英文按词，`units = cjk + words×2`、`minutes = max(1, round(units/400))`）
+  - 新增 `lib/utils.ts` 的 `formatCompactCount`：浏览量按 k/m/b 进位
+  - 新增 `components/features/PostStats.tsx`：字数 / 时间 / 浏览量三徽章，只显图标 + 数字、无分隔符，容器 `opacity: 0.7` 对齐标签行
+  - 新增 `components/umami/{useUmamiViews,PageViews,TotalViews}`：共用 hook（加载中 / 失败 / 未配置返回 null 即整段隐藏）、文章页徽章、页脚总量
+  - `app/posts/[slug]/page.tsx` 传 `words/minutes/path`；`components/layout/Footer.tsx` 的 `Built at` 行改 flex 并接 `TotalViews`
+  - i18n：6 语言新增 `posts.statsWords/statsReadTime/statsViews`、`footer.totalViews`（仅用于 `title`/`aria-label`）
+
+- **Umami 请求层与环境变量化**
+  - 新增 `lib/umami.ts`：读取 `NEXT_PUBLIC_UMAMI_*`，凭据缺失即禁用；通道优先级 API Key → 分享 token；token 5 分钟缓存 + 401 失效重建；`path=eq.` 优先、平铺回退；兼容 `pageviews` 数字 / `{value}`
+  - `app/layout.tsx`：`data-website-id` 与统计脚本注入走 env（缺失不注入），`data-host-url` 走 `NEXT_PUBLIC_UMAMI_PROXY_URL`
+  - 新增环境变量 `NEXT_PUBLIC_UMAMI_WEBSITE_ID / SHARE_ID / API_KEY / PROXY_URL`（`.env`、`.env.example`、README）
+
+- **新增 `scripts/umami/worker.js`（Cloudflare Worker）**
+  - `GET /?path=` 查询代理（不带 path = 全站总量），结果边缘缓存 180s、错误不缓存，缓存 key 按 Origin 隔离
+  - `POST /api/send` 上报转发到 gateway，绕开跟踪保护；`payload.website` 防滥用校验
+  - **安全加固**：CORS 来源白名单来自 `ALLOWED_ORIGINS` 环境变量（源码不保存真实 ID/域名），按 Origin 回显、名单外不给 ACAO，上报带非法 Origin → 403，无 Origin 放行
+  - **配置必填**：`WEBSITE_ID` / `SHARE_ID` / `ALLOWED_ORIGINS` 缺任一项，真实请求一律 503 并点名缺失项（校验排在边缘缓存之前）
+  - **本地示例模式**：Origin 为 localhost/127.0.0.1 时查询返回 `{"views":128,"demo":true}`、上报应答后丢弃，不查 Umami、不进缓存，避免开发流量污染统计
+  - 冒烟测试 22 项全部通过（含「源码不含真实 ID/域名」断言）
+
+- **文档**
+  - `content/docs/deployment` 新增独立教程 `p7.md`（第七部分：浏览统计），summary 顺延为 order 8
+  - `p2.md` 新增 2.7 浏览量统计配置（原 2.7 顺延为 2.8）、`p6.md` 新增徽章为 0 的排查 FAQ
+  - `docs/.ai/index.md` 重要文件路径表补充上述新文件
+
+### 修改文件
+
+- 新增：`lib/reading.ts`、`lib/umami.ts`、`components/umami/*`、`components/features/PostStats.tsx`、`scripts/umami/worker.js`、`content/docs/deployment/p7.md`
+- 修改：`app/layout.tsx`、`app/posts/[slug]/page.tsx`、`components/features/PostPageClient.tsx`、`components/layout/Footer.tsx`、`lib/utils.ts`、6 个翻译文件、`.env.example`、`README.md`、`content/docs/deployment/{p2,p6,summary}.md`、`docs/.ai/index.md`
+
+---
+
 ## [2026-09-11]
 
 ### 主要变更
