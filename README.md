@@ -80,6 +80,7 @@ npm run dev
 | `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Umami Website ID（留空禁用浏览量模块） |
 | `NEXT_PUBLIC_UMAMI_SHARE_ID` | Umami 分享链接 ID，公开只读通道（推荐） |
 | `NEXT_PUBLIC_UMAMI_API_KEY` | Umami 只读 API Key（可选，优先于 Share ID） |
+| `NEXT_PUBLIC_UMAMI_PROXY_URL` | Umami Worker 反代地址（可选，规避跨域，见 `public/umami/worker.js`） |
 | `INDEXNOW_KEY` | IndexNow API Key（可选） |
 
 完整配置项见 [`.env.example`](.env.example)。

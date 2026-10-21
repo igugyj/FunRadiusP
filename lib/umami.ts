@@ -9,24 +9,29 @@ export interface UmamiConfig {
   apiKey?: string;
   /** 公开分享链接 ID（免费版 Hobby 计划的官方只读通道） */
   shareId?: string;
+  /** Cloudflare Worker 反代地址（可选；配置后优先走代理，规避跨域） */
+  proxyUrl?: string;
 }
 
 /**
- * 读取环境变量。缺少 Website ID，或 API Key 与 Share ID 都为空时返回 null，
+ * 读取环境变量。缺少 Website ID，且代理/API Key/Share ID 都为空时返回 null，
  * 调用方据此禁用浏览量模块（不发起任何请求）。
  */
 export function getUmamiConfig(): UmamiConfig | null {
   const websiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim() || "";
   const apiKey = process.env.NEXT_PUBLIC_UMAMI_API_KEY?.trim() || "";
   const shareId = process.env.NEXT_PUBLIC_UMAMI_SHARE_ID?.trim() || "";
+  const proxyUrl =
+    process.env.NEXT_PUBLIC_UMAMI_PROXY_URL?.trim().replace(/\/+$/, "") || "";
 
   if (!websiteId) return null;
-  if (!apiKey && !shareId) return null;
+  if (!apiKey && !shareId && !proxyUrl) return null;
 
   return {
     websiteId,
     apiKey: apiKey || undefined,
     shareId: shareId || undefined,
+    proxyUrl: proxyUrl || undefined,
   };
 }
 
@@ -63,6 +68,57 @@ interface Channel {
   headers: Record<string, string>;
 }
 
+// 分享 token 缓存（同一模块生命周期内复用），省掉每次查询前的换 token 请求
+const SHARE_CHANNEL_TTL = 5 * 60 * 1000;
+let shareChannelCache: { at: number; channel: Channel } | null = null;
+let shareChannelPending: Promise<Channel | null> | null = null;
+
+function invalidateShareChannel() {
+  shareChannelCache = null;
+}
+
+async function resolveShareChannel(shareId: string): Promise<Channel | null> {
+  if (
+    shareChannelCache &&
+    Date.now() - shareChannelCache.at < SHARE_CHANNEL_TTL
+  ) {
+    return shareChannelCache.channel;
+  }
+  // 并发时共用同一次换 token（页脚与文章徽章会同时发起）
+  if (shareChannelPending) return shareChannelPending;
+
+  shareChannelPending = (async () => {
+    try {
+      const baseUrl = await resolveShareBase(shareId);
+      const res = await fetch(`${baseUrl}/share/${shareId}`, {
+        headers: { accept: "application/json" },
+      });
+      if (!res.ok) return null;
+
+      const info = (await res.json()) as ShareInfo;
+      if (!info?.token) return null;
+
+      const channel: Channel = {
+        baseUrl,
+        headers: {
+          accept: "application/json",
+          "x-umami-share-token": info.token,
+          // 官方客户端传的固定值；服务端只校验其存在
+          "x-umami-share-context": "1",
+        },
+      };
+      shareChannelCache = { at: Date.now(), channel };
+      return channel;
+    } catch {
+      return null;
+    } finally {
+      shareChannelPending = null;
+    }
+  })();
+
+  return shareChannelPending;
+}
+
 /** 按优先级返回所有可用通道（API Key 优先，分享链接兜底） */
 async function resolveChannels(config: UmamiConfig): Promise<Channel[]> {
   const { apiKey, shareId } = config;
@@ -80,28 +136,8 @@ async function resolveChannels(config: UmamiConfig): Promise<Channel[]> {
   }
 
   if (shareId) {
-    try {
-      const baseUrl = await resolveShareBase(shareId);
-      const res = await fetch(`${baseUrl}/share/${shareId}`, {
-        headers: { accept: "application/json" },
-      });
-      if (res.ok) {
-        const info = (await res.json()) as ShareInfo;
-        if (info?.token) {
-          channels.push({
-            baseUrl,
-            headers: {
-              accept: "application/json",
-              "x-umami-share-token": info.token,
-              // 官方客户端传的固定值；服务端只校验其存在
-              "x-umami-share-context": "1",
-            },
-          });
-        }
-      }
-    } catch {
-      // 分享通道获取失败则跳过
-    }
+    const channel = await resolveShareChannel(shareId);
+    if (channel) channels.push(channel);
   }
 
   return channels;
@@ -123,6 +159,27 @@ export async function fetchPageviews(path?: string): Promise<number | null> {
   const config = getUmamiConfig();
   if (!config) return null;
 
+  // 1) 代理优先：一次请求拿结果，不经过浏览器直连 Umami（规避跨域）
+  if (config.proxyUrl) {
+    try {
+      const query = new URLSearchParams();
+      if (path) query.set("path", path);
+
+      const res = await fetch(`${config.proxyUrl}/?${query}`, {
+        headers: { accept: "application/json" },
+      });
+      if (res.ok) {
+        const payload = await res.json();
+        const views =
+          typeof payload?.views === "number" ? payload.views : null;
+        if (views !== null) return views;
+      }
+    } catch {
+      // 代理失败则回落到下面的直连通道
+    }
+  }
+
+  // 2) 直连通道（浏览器需要 Umami 支持 CORS）
   const channels = await resolveChannels(config);
   if (channels.length === 0) return null;
 
@@ -142,6 +199,9 @@ export async function fetchPageviews(path?: string): Promise<number | null> {
           `${channel.baseUrl}/websites/${config.websiteId}/stats?${query}`,
           { headers: channel.headers },
         );
+        if (res.status === 401 || res.status === 403) {
+          invalidateShareChannel(); // token 失效，下次重新换取
+        }
         if (!res.ok) continue;
 
         const value = readPageviews(await res.json());
