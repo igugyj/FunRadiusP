@@ -16,6 +16,8 @@ import Script from "next/script";
 
 const defaultLang = process.env.NEXT_PUBLIC_DEFAULT_LANGUAGE || "zh";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+// Umami 统计脚本：Website ID 未配置时整个脚本不注入（与浏览量模块同一开关）
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim();
 
 export const metadata: Metadata = getRootMetadata();
 
@@ -72,12 +74,14 @@ export default function RootLayout({
     <html lang={defaultLang === "en" ? "en" : defaultLang}>
       <body>
         {/* umami */}
-        <Script
-          defer
-          src="/umami/script.js"
-          data-host-url="https://cloud.umami.is"
-          data-website-id="65b451cc-ec3a-4f05-ac2f-6de0346fa635"
-        />
+        {umamiWebsiteId && (
+          <Script
+            defer
+            src="/umami/script.js"
+            data-host-url="https://gateway.umami.is"
+            data-website-id={umamiWebsiteId}
+          />
+        )}
         <MathStyles />
         <LanguageProvider>
           <ImageViewerProvider>
