@@ -55,7 +55,10 @@
     "notFound": "Artículo no encontrado",
     "prevPost": "Anterior: ",
     "nextPost": "Siguiente: ",
-    "toc": "Tabla de contenidos"
+    "toc": "Tabla de contenidos",
+    "statsWords": "Recuento de palabras",
+    "statsReadTime": "Tiempo de lectura",
+    "statsViews": "Vistas"
   },
   "archive": {
     "title": "Archivo",
@@ -84,7 +87,8 @@
     "poweredByShort": "Construido con Next.js",
     "githubThanks": "Gracias a la mayor comunidad de código del mundo",
     "cloudflareThanks": "Un proveedor generoso y amable",
-    "supportedBy": "Impulsado por {github} y {cloudflare}"
+    "supportedBy": "Impulsado por {github} y {cloudflare}",
+    "totalViews": "Vistas totales"
   },
   "greeting": {
     "welcome": "¡Bienvenido, usuario de {browser} desde {os}!"

@@ -4,6 +4,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { SiCloudflare } from "react-icons/si";
 import { useLanguage } from "@/lib/i18n";
+import TotalViews from "@/components/umami/TotalViews";
 
 // 辅助函数：解析带占位符的翻译字符串
 const parseTranslationWithPlaceholders = (
@@ -96,10 +97,11 @@ export default function Footer() {
           {t("footer.poweredBy")}
         </p>
         <p
-          className="text-sm mt-2"
+          className="text-sm mt-2 flex items-center justify-center gap-2"
           style={{ color: "var(--text)", opacity: 0.5 }}
         >
-          Built at {process.env.NEXT_PUBLIC_BUILD_TIME || "unknown"}
+          <span>Built at {process.env.NEXT_PUBLIC_BUILD_TIME || "unknown"}</span>
+          <TotalViews />
         </p>
         <p
           className="text-sm mt-2 flex items-center justify-center gap-2"

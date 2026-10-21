@@ -62,6 +62,24 @@ export function formatMomentTime(dateString: string): string {
   });
 }
 
+// 大数字进位：1.2k / 1.2m / 1.2b（去掉尾随 .0）
+export function formatCompactCount(count: number): string {
+  const round = (value: number) => parseFloat(value.toFixed(1));
+
+  if (count >= 1e9) return `${round(count / 1e9)}b`;
+  if (count >= 1e6) {
+    const value = round(count / 1e6);
+    // 四舍五入到 1000m 时进位成 b
+    return value >= 1000 ? `${round(count / 1e9)}b` : `${value}m`;
+  }
+  if (count >= 1e3) {
+    const value = round(count / 1e3);
+    // 四舍五入到 1000k 时进位成 m
+    return value >= 1000 ? `${round(count / 1e6)}m` : `${value}k`;
+  }
+  return String(count);
+}
+
 // 获取上一篇和下一篇文章
 export function getPrevNextPosts<T extends { id: string }>(posts: T[], currentId: string) {
   const currentIndex = posts.findIndex((post) => post.id === currentId);

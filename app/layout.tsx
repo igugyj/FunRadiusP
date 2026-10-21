@@ -12,6 +12,7 @@ import MathStyles from "../components/ui/MathStyles";
 import { ImageViewerProvider } from "../components/ui/ImageViewer";
 import { LanguageProvider } from "../lib/i18n";
 import { getRootMetadata } from "../lib/i18n/metadata";
+import Script from "next/script";
 
 const defaultLang = process.env.NEXT_PUBLIC_DEFAULT_LANGUAGE || "zh";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
@@ -70,6 +71,13 @@ export default function RootLayout({
   return (
     <html lang={defaultLang === "en" ? "en" : defaultLang}>
       <body>
+        {/* umami */}
+        <Script
+          defer
+          src="/umami/script.js"
+          data-host-url="https://cloud.umami.is"
+          data-website-id="65b451cc-ec3a-4f05-ac2f-6de0346fa635"
+        />
         <MathStyles />
         <LanguageProvider>
           <ImageViewerProvider>

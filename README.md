@@ -77,6 +77,9 @@ npm run dev
 | `NEXT_PUBLIC_DEFAULT_LANGUAGE` | 默认语言：zh / en |
 | `NEXT_PUBLIC_DEFAULT_PRIMARY_COLOR` | 主题色 |
 | `NEXT_PUBLIC_PARTICLES_ENABLED` | 粒子特效开关 |
+| `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Umami Website ID（留空禁用浏览量模块） |
+| `NEXT_PUBLIC_UMAMI_SHARE_ID` | Umami 分享链接 ID，公开只读通道（推荐） |
+| `NEXT_PUBLIC_UMAMI_API_KEY` | Umami 只读 API Key（可选，优先于 Share ID） |
 | `INDEXNOW_KEY` | IndexNow API Key（可选） |
 
 完整配置项见 [`.env.example`](.env.example)。

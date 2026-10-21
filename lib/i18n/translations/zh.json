@@ -57,7 +57,10 @@
         "notFound": "文章未找到",
         "prevPost": "上一篇：",
         "nextPost": "下一篇：",
-        "toc": "目录"
+        "toc": "目录",
+        "statsWords": "字数",
+        "statsReadTime": "阅读时间",
+        "statsViews": "阅读量"
     },
     "archive": {
         "title": "归档",
@@ -86,7 +89,8 @@
         "poweredByShort": "使用 Next.js 构建",
         "githubThanks": "感谢全世界最大的同性交友网站",
         "cloudflareThanks": "一个慷慨又善良的神",
-        "supportedBy": "由 {github} 和 {cloudflare} 提供强力支持"
+        "supportedBy": "由 {github} 和 {cloudflare} 提供强力支持",
+        "totalViews": "总浏览量"
     },
     "greeting": {
         "welcome": "欢迎，来自{os}的{browser}的您！"

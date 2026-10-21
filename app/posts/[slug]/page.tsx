@@ -4,6 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import { getPostById, getPosts, Post } from "../../../lib/posts";
 import { formatDate, getPrevNextPosts } from "../../../lib/utils";
+import { getReadingStats } from "../../../lib/reading";
 import { markdownToHtml } from "../../../lib/markdown";
 import StructuredData from "../../../components/ui/StructuredData";
 import MusicPlayer from "../../../components/features/MusicPlayer";
@@ -65,6 +66,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const posts: Post[] = getPosts();
   const { prev, next } = getPrevNextPosts(posts, post.id);
   const htmlContent = await markdownToHtml(post.content, { type: 'post', id: post.id });
+  const readingStats = getReadingStats(post.content);
 
   const isAutoHideEnabled = process.env.NEXT_PUBLIC_HEADER_AUTO_HIDE_ENABLED !== "false";
 
@@ -119,6 +121,9 @@ export default async function PostPage({ params }: PostPageProps) {
         isAutoHideEnabled={isAutoHideEnabled}
         slug={slug}
         shortCode={shortCode}
+        words={readingStats.words}
+        minutes={readingStats.minutes}
+        path={`/posts/${slug}/`}
       />
     </>
   );

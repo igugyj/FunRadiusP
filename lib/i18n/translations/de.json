@@ -55,7 +55,10 @@
     "notFound": "Artikel nicht gefunden",
     "prevPost": "Vorheriger: ",
     "nextPost": "Nächster: ",
-    "toc": "Inhaltsverzeichnis"
+    "toc": "Inhaltsverzeichnis",
+    "statsWords": "Wortanzahl",
+    "statsReadTime": "Lesezeit",
+    "statsViews": "Aufrufe"
   },
   "archive": {
     "title": "Archiv",
@@ -84,7 +87,8 @@
     "poweredByShort": "Erstellt mit Next.js",
     "githubThanks": "Danke an die größte Code-Community der Welt",
     "cloudflareThanks": "Ein großzügiger und freundlicher Anbieter",
-    "supportedBy": "Unterstützt von {github} und {cloudflare}"
+    "supportedBy": "Unterstützt von {github} und {cloudflare}",
+    "totalViews": "Gesamtaufrufe"
   },
   "greeting": {
     "welcome": "Willkommen, {browser}-Benutzer aus {os}!"

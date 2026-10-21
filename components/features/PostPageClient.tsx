@@ -7,6 +7,7 @@ import TableOfContents from "@/components/ui/TableOfContents";
 import GiscusComments from "@/components/features/GiscusComments";
 import ExpandableCover from "@/components/ui/ExpandableCover";
 import MarkdownContent from "@/components/ui/MarkdownContent";
+import PostStats from "@/components/features/PostStats";
 
 interface Post {
   id: string;
@@ -30,6 +31,9 @@ interface PostPageClientProps {
   isAutoHideEnabled: boolean;
   slug: string;
   shortCode: string | null;
+  words: number;
+  minutes: number;
+  path: string;
 }
 
 export default function PostPageClient({
@@ -40,6 +44,9 @@ export default function PostPageClient({
   isAutoHideEnabled,
   slug,
   shortCode,
+  words,
+  minutes,
+  path,
 }: PostPageClientProps) {
   const { t } = useLanguage();
   const [copiedPath, setCopiedPath] = useState<string | null>(null);
@@ -106,6 +113,9 @@ export default function PostPageClient({
                 </div>
               )}
             </div>
+
+            {/* 字数 | 阅读时间 | 浏览量 */}
+            <PostStats words={words} minutes={minutes} path={path} />
 
             {/* 分享链接 */}
             {shortCode && (

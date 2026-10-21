@@ -55,7 +55,10 @@
     "notFound": "記事が見つかりません",
     "prevPost": "前の記事: ",
     "nextPost": "次の記事: ",
-    "toc": "目次"
+    "toc": "目次",
+    "statsWords": "文字数",
+    "statsReadTime": "読了時間",
+    "statsViews": "閲覧数"
   },
   "archive": {
     "title": "アーカイブ",
@@ -84,7 +87,8 @@
     "poweredByShort": "Next.js で構築",
     "githubThanks": "世界最大のコードコミュニティに感謝",
     "cloudflareThanks": "寛大で親切なプロバイダー",
-    "supportedBy": "{github} と {cloudflare} でサポート"
+    "supportedBy": "{github} と {cloudflare} でサポート",
+    "totalViews": "総閲覧数"
   },
   "greeting": {
     "welcome": "{os} の {browser} ユーザー、ようこそ！"
