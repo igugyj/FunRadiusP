@@ -18,6 +18,10 @@ const defaultLang = process.env.NEXT_PUBLIC_DEFAULT_LANGUAGE || "zh";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
 // Umami 统计脚本：Website ID 未配置时整个脚本不注入（与浏览量模块同一开关）
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim();
+// 数据上报端点：配置了 Worker 代理就走自己的域名（绕开跟踪保护对 gateway.umami.is 的拦截）
+const umamiHostUrl =
+  process.env.NEXT_PUBLIC_UMAMI_PROXY_URL?.trim().replace(/\/+$/, "") ||
+  "https://gateway.umami.is";
 
 export const metadata: Metadata = getRootMetadata();
 
@@ -78,7 +82,7 @@ export default function RootLayout({
           <Script
             defer
             src="/umami/script.js"
-            data-host-url="https://gateway.umami.is"
+            data-host-url={umamiHostUrl}
             data-website-id={umamiWebsiteId}
           />
         )}

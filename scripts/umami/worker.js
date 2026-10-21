@@ -1,19 +1,22 @@
-// Cloudflare Worker：Umami 浏览量只读代理
+// Cloudflare Worker：Umami 只读查询 + 数据上报转发
 // 部署：`wrangler deploy` 或直接在 CF Dashboard 粘贴本文件（免费版 10 万次/天）
-// 请求：GET /?path=/posts/xxx/  → {"views": 123}
-//       GET /                    → {"views": 123}（全站总量）
+// 请求：GET  /?path=/posts/xxx/ → {"views": 123}
+//       GET  /                  → {"views": 123}（全站总量）
+//       POST /api/send          → 转发数据上报到 gateway.umami.is
+//                                  （前端把 data-host-url 指到这里，绕开跟踪保护拦截）
 //
 // 环境变量（可选，不填用下面的默认值）：
 //   WEBSITE_ID  Umami Website ID
 //   SHARE_ID    Umami 分享链接 ID
 
 const CLOUD = "https://cloud.umami.is";
+const GATEWAY = "https://gateway.umami.is";
 const DEFAULT_WEBSITE_ID = "65b451cc-ec3a-4f05-ac2f-6de0346fa635";
 const DEFAULT_SHARE_ID = "CDyghiUc0dKFC3kk";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
   "Access-Control-Allow-Headers": "*",
 };
 
@@ -73,16 +76,83 @@ function json(body, status = 200) {
     headers: {
       ...CORS_HEADERS,
       "Content-Type": "application/json",
-      "Cache-Control": "public, max-age=180",
+      // 只缓存成功结果，错误响应不缓存
+      ...(status === 200
+        ? { "Cache-Control": "public, max-age=180" }
+        : { "Cache-Control": "no-store" }),
     },
   });
 }
 
+// 把统计上报转发到官方 gateway：让浏览器看到的是向 worker 域名发请求，
+// 从而绕开 Firefox/广告拦截器对 gateway.umami.is 的跟踪器封锁
+async function proxySend(request, env) {
+  const websiteId = env.WEBSITE_ID || DEFAULT_WEBSITE_ID;
+
+  let raw;
+  try {
+    raw = await request.text();
+  } catch {
+    return json({ error: "bad body" }, 400);
+  }
+
+  // 防滥用：只转发打到本站的上报，避免 worker 被当成公共中继给别人的站灌数据
+  try {
+    const parsed = JSON.parse(raw);
+    const target = parsed?.payload?.website;
+    if (target !== undefined && target !== websiteId) {
+      return json({ error: "website mismatch" }, 403);
+    }
+  } catch {
+    return json({ error: "invalid json" }, 400);
+  }
+
+  try {
+    const headers = {
+      "content-type": "application/json",
+      accept: "application/json",
+      "user-agent": request.headers.get("user-agent") || "",
+    };
+    // umami 脚本用该头做上报缓存衔接，透传
+    const umamiCache = request.headers.get("x-umami-cache");
+    if (umamiCache) headers["x-umami-cache"] = umamiCache;
+
+    const res = await fetch(`${GATEWAY}/api/send`, {
+      method: "POST",
+      headers,
+      body: raw,
+    });
+
+    const text = await res.text();
+    return new Response(text, {
+      status: res.status,
+      headers: {
+        ...CORS_HEADERS,
+        "Content-Type": res.headers.get("content-type") || "application/json",
+        "Cache-Control": "no-store",
+      },
+    });
+  } catch (error) {
+    return json({ error: String(error?.message || error) }, 502);
+  }
+}
+
 export default {
   async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: CORS_HEADERS });
     }
+
+    // 数据上报转发（必须排在边缘缓存之前，POST 不进缓存）
+    if (
+      request.method === "POST" &&
+      url.pathname.replace(/\/+$/, "") === "/api/send"
+    ) {
+      return proxySend(request, env);
+    }
+
     if (request.method !== "GET") {
       return json({ views: 0, error: "method not allowed" }, 405);
     }
@@ -93,7 +163,6 @@ export default {
     if (cached) return cached;
 
     try {
-      const url = new URL(request.url);
       const path = (url.searchParams.get("path") || "").trim();
 
       const websiteId = env.WEBSITE_ID || DEFAULT_WEBSITE_ID;
