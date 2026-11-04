@@ -6,7 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="refresh" content="{{delay}}; url={{target_html}}">
   <title>Redirecting... {{target_full}}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cn-fontsource-xiaolai-sc-regular/font.css">
+<!-- 1) 预连接 CDN 域名，提前建立 DNS/TCP/TLS -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+<!-- 2) 字体 CSS 改为异步加载，不再阻塞首屏渲染 -->
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/cn-fontsource-xiaolai-sc-regular/font.css" as="style"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cn-fontsource-xiaolai-sc-regular/font.css">
+  </noscript>
+
   <style>
     body {
       margin: 0;
@@ -18,7 +28,8 @@
       background: #FFF0F5;
       overflow: hidden;
       position: relative;
-      font-family: system-ui, sans-serif;
+      /* 字体栈统一：先系统字体，等 Xiaolai 到了再 swap */
+      font-family: "Xiaolai SC", system-ui, -apple-system, "Segoe UI", sans-serif;
     }
 
     /* Kawaii 风格的背后大光晕 */
@@ -41,7 +52,6 @@
       width: clamp(160px, 35vh, 280px);
       height: auto;
       margin-bottom: 1.5rem;
-      /* 保留正片叠底，增加圆角 */
       mix-blend-mode: multiply;
       border-radius: 20px;
       animation: fadeIn 0.6s ease-out;
@@ -59,7 +69,7 @@
 
     .title {
       margin: 0;
-      font-family: "Xiaolai SC", system-ui, sans-serif;
+      font-family: "Xiaolai SC", system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: clamp(1.6rem, 5vw, 2.4rem);
       font-weight: 700;
       background: linear-gradient(120deg, #a78bfa, #f472b6, #60a5fa);
@@ -69,11 +79,10 @@
       text-shadow: 0 2px 10px rgba(167, 139, 250, 0.2);
     }
 
-    /* 将网址改成 a 标签，并去掉默认样式 */
     .url-link {
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       color: #8a7b8c;
-      font-family: "Xiaolai SC", system-ui, sans-serif;
+      font-family: "Xiaolai SC", system-ui, -apple-system, "Segoe UI", sans-serif;
       letter-spacing: 0.5px;
       max-width: 80vw;
       word-break: break-all;
@@ -93,7 +102,7 @@
       border-radius: 999px;
       background: linear-gradient(120deg, #a78bfa, #f472b6, #60a5fa);
       color: #fff;
-      font-family: "Xiaolai SC", system-ui, sans-serif;
+      font-family: "Xiaolai SC", system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       font-weight: 700;
       text-decoration: none;
@@ -109,25 +118,19 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* 尊重用户"减少动效"设置 */
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .text-container, .btn { animation: none !important; }
+      .btn { transition: none !important; }
     }
   </style>
 </head>
@@ -137,7 +140,6 @@
 
   <div class="text-container">
     <h1 class="title">Redirecting...</h1>
-    <!-- 网址变成可点击的链接 -->
     <a class="url-link" href="{{target_full}}">{{target_full}}</a>
   </div>
 
