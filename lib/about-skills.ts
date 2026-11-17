@@ -71,8 +71,8 @@ export const preferredToolsLogos: LogoItem[] = [
     href: "https://code.visualstudio.com",
   },
   {
-    src: "https://img.shields.io/badge/DeepSeek_Harness-4D6BFE?style=flat-square&logo=deepseek&logoColor=white",
-    alt: "DSH",
+    src: "https://img.shields.io/badge/DSH-4D6BFE?style=flat-square&logo=deepseek&logoColor=white",
+    alt: "DeepSeek Harness",
     href: "https://github.com/deepseek-ai/deepseek-harness",
   },
   {
@@ -142,6 +142,11 @@ export const infrequentSkillsLogos: LogoItem[] = [
     alt: "AutoHotkey",
     href: "https://autohotkey.com",
   },
+  {
+    src: "https://img.shields.io/badge/Dot-ababf8?style=flat-square&logo=graphite&logoColor=black",
+    alt: "Dot",
+    href: "https://autohotkey.com",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -150,7 +155,7 @@ export const infrequentSkillsLogos: LogoItem[] = [
 
 export const otherToolsLogos: LogoItem[] = [
   {
-    src: "https://img.shields.io/badge/OpenCode-000000?style=flat-square",
+    src: "https://img.shields.io/badge/OpenCode-000000?style=flat-square&logo=OpenCode",
     alt: "OpenCode",
     href: "https://opencode.ai",
   },
