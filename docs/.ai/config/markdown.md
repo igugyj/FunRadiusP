@@ -117,6 +117,12 @@ draft: false
 > [!QUOTE]
 > 这是引用
 
+> [!CITE]
+> 这是引用（CITE 别名）
+
+> [!REFERENCE]
+> 这是引用（REFERENCE 别名）
+
 > [!SUCCESS]
 > 这是成功信息
 
@@ -127,13 +133,15 @@ draft: false
 > 这是参考文献
 ```
 
-支持的 Callout 类型：
+支持的 Callout 类型（不区分大小写）：
 - `NOTE` - 注意事项（蓝色）
 - `TIP` - 提示（绿色）
 - `IMPORTANT` - 重要信息（蓝色）
 - `WARNING` - 警告（黄色）
 - `CAUTION` - 警示（红色）
-- `QUOTE` - 引用（蓝色）
+- `QUOTE` - 引用（主题粉色）
+- `CITE` - `QUOTE` 的别名（主题粉色）
+- `REFERENCE` - `QUOTE` 的别名（主题粉色）
 - `SUCCESS` - 成功（绿色）
 - `FAILURE` - 失败（红色）
 - `REFERENCES` - 参考文献（蓝色）

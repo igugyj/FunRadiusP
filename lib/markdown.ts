@@ -40,7 +40,7 @@ const calloutConfigs = {
   },
   QUOTE: {
     title: "QUOTE",
-    color: "blue",
+    color: "quote",
     iconType: "quote",
   },
   SUCCESS: {
@@ -58,6 +58,12 @@ const calloutConfigs = {
     color: "blue",
     iconType: "references",
   },
+};
+
+// Callout 别名：统一按 QUOTE 呈现
+const calloutAliases: Record<string, string> = {
+  CITE: "QUOTE",
+  REFERENCE: "QUOTE",
 };
 
 // 创建 SVG 图标 HTML
@@ -125,10 +131,11 @@ function remarkGithubCallout() {
               const child = firstPara.children[i];
               if (child.type === "text" && child.value) {
                 const match = child.value.match(
-                  /^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION|QUOTE|SUCCESS|FAILURE|REFERENCES)\]/,
+                  /^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION|QUOTE|CITE|REFERENCES|REFERENCE|SUCCESS|FAILURE)\]/i,
                 );
                 if (match) {
-                  calloutType = match[1];
+                  const rawType = match[1].toUpperCase();
+                  calloutType = calloutAliases[rawType] ?? rawType;
                   const contentStartIndex = match[0].length;
                   child.value = child.value.slice(contentStartIndex).trim();
                   if (!child.value) {
