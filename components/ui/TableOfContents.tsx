@@ -16,7 +16,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
     // 从 HTML 中提取标题
     const parser = new DOMParser();
     const doc = parser.parseFromString(content, "text/html");
-    const headingElements = doc.querySelectorAll("h2, h3, h4, h5, h6");
+    const headingElements = doc.querySelectorAll("h1, h2, h3, h4, h5, h6");
 
     const extractedHeadings = Array.from(headingElements).map((heading) => ({
       id: heading.id,
@@ -47,10 +47,16 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
   if (headings.length === 0)
     return <p className="text-text opacity-60">无目录</p>;
 
+  // 以实际出现的最浅标题为基准，保证 h1 也能正常显示且深层标题缩进正确
+  const minLevel = Math.min(...headings.map((heading) => heading.level));
+
   return (
     <ul className="space-y-2">
       {headings.map((heading) => (
-        <li key={heading.id} className={`pl-${(heading.level - 2) * 4}`}>
+        <li
+          key={heading.id}
+          style={{ paddingLeft: `${(heading.level - minLevel) * 16}px` }}
+        >
           <a
             href={`#${heading.id}`}
             className={`block py-1 text-sm transition-colors ${activeHeading === heading.id ? "text-primary font-semibold" : "text-text opacity-75 hover:text-primary hover:opacity-100"}`}

@@ -650,6 +650,18 @@ footer {
   line-height: 1.8;
 }
 
+/* 文章与文档正文使用 Maple Mono CN，其余界面保持小濑字体 */
+.maple-content {
+  font-family: "Maple Mono CN", "XiaolaiMono", -apple-system, sans-serif;
+}
+
+.maple-content code,
+.maple-content kbd,
+.maple-content samp,
+.maple-content pre {
+  font-family: "Maple Mono CN", "XiaolaiMono", monospace;
+}
+
 .prose h1,
 .prose h2,
 .prose h3,

@@ -15,6 +15,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mogeko/maple-mono-cn": "^7.9.0",
     "dotenv": "^17.4.1",
     "gray-matter": "^4.0.3",
     "hastscript": "^9.0.0",

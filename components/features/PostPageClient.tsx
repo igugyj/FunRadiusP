@@ -183,7 +183,7 @@ export default function PostPageClient({
             )}
 
             {/* 文章内容 */}
-            <MarkdownContent html={htmlContent} />
+            <MarkdownContent html={htmlContent} className="maple-content" />
 
             {/* 版权声明 */}
             <div

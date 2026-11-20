@@ -5,9 +5,13 @@ import { useImageViewer } from "./ImageViewer";
 
 interface MarkdownContentProps {
   html: string;
+  className?: string;
 }
 
-export default function MarkdownContent({ html }: MarkdownContentProps) {
+export default function MarkdownContent({
+  html,
+  className = "",
+}: MarkdownContentProps) {
   const { openViewer } = useImageViewer();
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -41,7 +45,7 @@ export default function MarkdownContent({ html }: MarkdownContentProps) {
   return (
     <div
       ref={contentRef}
-      className="prose max-w-none mb-8 post-content"
+      className={`prose max-w-none mb-8 post-content ${className}`.trim()}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

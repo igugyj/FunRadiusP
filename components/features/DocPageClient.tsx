@@ -124,7 +124,7 @@ export default function DocPageClient({
             </p>
           )}
 
-          <MarkdownContent html={htmlContent} />
+          <MarkdownContent html={htmlContent} className="maple-content" />
 
           {/* 上一篇/下一篇 */}
           <div className="grid grid-cols-2 gap-6 mb-12">
