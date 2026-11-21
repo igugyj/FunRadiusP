@@ -23,6 +23,37 @@ function loadWhenIdle(fn: () => void) {
   }
 }
 
+// 确保是绝对路径
+function ensureAbsolutePath(path: string): string {
+  if (path.startsWith("/") || path.startsWith("http")) {
+    return path;
+  }
+  return "/" + path;
+}
+
+// 读取模型列表；未配置、解析失败或为空数组时返回空列表（此时不加载看板娘）
+function getModelPaths(): string[] {
+  const modelsJson = process.env.NEXT_PUBLIC_LIVE2D_MODELS;
+  if (!modelsJson) {
+    return [];
+  }
+
+  try {
+    const parsed: unknown = JSON.parse(modelsJson);
+    if (!Array.isArray(parsed)) {
+      console.error("NEXT_PUBLIC_LIVE2D_MODELS 应为字符串数组");
+      return [];
+    }
+    return parsed.filter(
+      (path): path is string =>
+        typeof path === "string" && path.trim().length > 0,
+    );
+  } catch (error) {
+    console.error("Error parsing LIVE2D_MODELS:", error);
+    return [];
+  }
+}
+
 export default function Live2DWidget() {
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -39,10 +70,16 @@ export default function Live2DWidget() {
       return;
     }
 
+    // 模型列表为空则不加载看板娘
+    const modelPaths = getModelPaths();
+    if (modelPaths.length === 0) {
+      return;
+    }
+
     loadWhenIdle(() => {
       const dockedPosition =
         process.env.NEXT_PUBLIC_LIVE2D_DOCKED_POSITION || "right";
-      const position = process.env.NEXT_PUBLIC_LIVE2D_POSITION
+      const position: [number, number] = process.env.NEXT_PUBLIC_LIVE2D_POSITION
         ? JSON.parse(process.env.NEXT_PUBLIC_LIVE2D_POSITION)
         : [0, 60];
       const scale = process.env.NEXT_PUBLIC_LIVE2D_SCALE
@@ -52,50 +89,14 @@ export default function Live2DWidget() {
         ? parseInt(process.env.NEXT_PUBLIC_LIVE2D_STAGE_HEIGHT)
         : 450;
 
-      const models: Array<{
-        path: string;
-        position: [number, number];
-        scale: number;
-        stageStyle: { height: number };
-      }> = [];
-      // 确保是绝对路径
-      const ensureAbsolutePath = (path: string): string => {
-        if (path.startsWith("/") || path.startsWith("http")) {
-          return path;
-        }
-        return "/" + path;
-      };
-
-      try {
-        const modelsJson = process.env.NEXT_PUBLIC_LIVE2D_MODELS;
-        if (modelsJson) {
-          const modelPaths: string[] = JSON.parse(modelsJson);
-          modelPaths.forEach((path) => {
-            models.push({
-              path: ensureAbsolutePath(path),
-              position,
-              scale,
-              stageStyle: {
-                height: stageHeight,
-              },
-            });
-          });
-        }
-      } catch (error) {
-        console.error("Error parsing LIVE2D_MODELS:", error);
-      }
-
-      if (models.length === 0) {
-        // 默认只加载 1 个模型，其余通过 NEXT_PUBLIC_LIVE2D_MODELS 显式配置
-        models.push({
-          path: ensureAbsolutePath("/live2d/chuixue_3/chuixue_3.model3.json"),
-          position,
-          scale,
-          stageStyle: {
-            height: stageHeight,
-          },
-        });
-      }
+      const models = modelPaths.map((path) => ({
+        path: ensureAbsolutePath(path),
+        position,
+        scale,
+        stageStyle: {
+          height: stageHeight,
+        },
+      }));
 
       if (typeof window.OML2D === "undefined") {
         const script = document.createElement("script");
