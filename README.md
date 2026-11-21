@@ -44,24 +44,24 @@ npm run dev
 
 ## 常用命令
 
-| 命令 | 说明 |
-|------|------|
-| `npm run dev` | 启动开发服务器 → localhost:3000 |
-| `npm run build` | 构建静态网站到 `output/` |
-| `npm run deploy` | 构建 + 提交 URL 到 IndexNow |
-| `npm run lint` | 代码检查 |
+| 命令             | 说明                            |
+| ---------------- | ------------------------------- |
+| `npm run dev`    | 启动开发服务器 → localhost:3000 |
+| `npm run build`  | 构建静态网站到 `output/`        |
+| `npm run deploy` | 构建 + 提交 URL 到 IndexNow     |
+| `npm run lint`   | 代码检查                        |
 
 ## 内容管理
 
 内容存放在 `content/` 目录下，按类型分类：
 
-| 目录 | 内容 |
-|------|------|
-| `content/posts/` | 博客文章 |
-| `content/docs/` | 文档笔记 |
-| `content/moments/` | 随笔（图文） |
-| `content/demos/` | 交互式 Demo |
-| `content/spec/` | 静态页面（关于/项目等） |
+| 目录               | 内容                    |
+| ------------------ | ----------------------- |
+| `content/posts/`   | 博客文章                |
+| `content/docs/`    | 文档笔记                |
+| `content/moments/` | 随笔（图文）            |
+| `content/demos/`   | 交互式 Demo             |
+| `content/spec/`    | 静态页面（关于/项目等） |
 
 每个目录下直接创建文件夹和 Markdown 文件即可发布内容。本项目的 `content/` 使用了 Git 子模块实现内容与代码分离，但你可以直接使用普通文件夹，无需任何子模块配置。
 
@@ -71,17 +71,17 @@ npm run dev
 
 复制 `.env.example` 为 `.env.local` 并按需修改。核心配置项：
 
-| 变量 | 说明 |
-|------|------|
-| `NEXT_PUBLIC_SITE_URL` | 网站 URL（必填） |
-| `NEXT_PUBLIC_DEFAULT_LANGUAGE` | 默认语言：zh / en |
-| `NEXT_PUBLIC_DEFAULT_PRIMARY_COLOR` | 主题色 |
-| `NEXT_PUBLIC_PARTICLES_ENABLED` | 粒子特效开关 |
-| `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Umami Website ID（留空禁用浏览量模块） |
-| `NEXT_PUBLIC_UMAMI_SHARE_ID` | Umami 分享链接 ID，公开只读通道（推荐） |
-| `NEXT_PUBLIC_UMAMI_API_KEY` | Umami 只读 API Key（可选，优先于 Share ID） |
-| `NEXT_PUBLIC_UMAMI_PROXY_URL` | Umami Worker 地址（可选：查询走代理 + 上报转发，见 `scripts/umami/worker.js`） |
-| `INDEXNOW_KEY` | IndexNow API Key（可选） |
+| 变量                                | 说明                                                                           |
+| ----------------------------------- | ------------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL`              | 网站 URL（必填）                                                               |
+| `NEXT_PUBLIC_DEFAULT_LANGUAGE`      | 默认语言：zh / en                                                              |
+| `NEXT_PUBLIC_DEFAULT_PRIMARY_COLOR` | 主题色                                                                         |
+| `NEXT_PUBLIC_PARTICLES_ENABLED`     | 粒子特效开关                                                                   |
+| `NEXT_PUBLIC_UMAMI_WEBSITE_ID`      | Umami Website ID（留空禁用浏览量模块）                                         |
+| `NEXT_PUBLIC_UMAMI_SHARE_ID`        | Umami 分享链接 ID，公开只读通道（推荐）                                        |
+| `NEXT_PUBLIC_UMAMI_API_KEY`         | Umami 只读 API Key（可选，优先于 Share ID）                                    |
+| `NEXT_PUBLIC_UMAMI_PROXY_URL`       | Umami Worker 地址（可选：查询走代理 + 上报转发，见 `scripts/umami/worker.js`） |
+| `INDEXNOW_KEY`                      | IndexNow API Key（可选）                                                       |
 
 完整配置项见 [`.env.example`](.env.example)。
 
@@ -96,19 +96,25 @@ npm run dev
 
 ## 技术栈
 
-| 类别 | 技术 |
-|------|------|
-| 框架 | Next.js 16 (App Router) |
-| 语言 | TypeScript 5 |
-| 样式 | Tailwind CSS 4 |
+| 类别 | 技术                                           |
+| ---- | ---------------------------------------------- |
+| 框架 | Next.js 16 (App Router)                        |
+| 语言 | TypeScript 5                                   |
+| 样式 | Tailwind CSS 4                                 |
 | 内容 | Markdown + Frontmatter (unified/remark/rehype) |
-| 评论 | Giscus |
-| 特效 | natural-falling-js, Live2D |
-| 构建 | 全静态导出 |
+| 评论 | Giscus                                         |
+| 特效 | natural-falling-js, Live2D                     |
+| 构建 | 全静态导出                                     |
 
 ## 致谢
 
 感谢所有开源项目和贡献者。完整致谢列表见 [CREDITS.md](CREDITS.md)。
+
+> 资源版权声明：可参见<https://pg25-lsae.eu.org/information/>，`public`目录下的资源**不在本项目的MIT许可范围内**。
+>
+> [components/reactbits](components/reactbits) 目录内的文件来自[React Bits - Logo Loop](https://reactbits.dev/animations/logo-loop)，遵循[MIT + Commons Clause License Condition v1.0 © 2026 David Haz](https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md)
+>
+> 资源细节请参见：<https://pg25-lsae.eu.org/information/>。
 
 ## License
 
